@@ -1,0 +1,16 @@
+{
+  "name": "red-moon-recovery",
+  "version": "1.0.0",
+  "description": "Red Moon Recovery - Menstrual Cycle Tracking for Athletes",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "better-sqlite3": "^9.4.3",
+    "bcryptjs": "^2.4.3",
+    "express-session": "^1.17.3"
+  }
+}
