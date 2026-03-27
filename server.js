@@ -37,7 +37,7 @@ db.exec(`
     email         TEXT UNIQUE NOT NULL,
     password_hash TEXT NOT NULL,
     created_at    TEXT DEFAULT (datetime('now'))
-  );
+  `);
   CREATE TABLE IF NOT EXISTS profiles (
     id            INTEGER PRIMARY KEY AUTOINCREMENT,
     user_id       INTEGER UNIQUE NOT NULL,
@@ -53,7 +53,7 @@ db.exec(`
     acl_history   TEXT,
     updated_at    TEXT DEFAULT (datetime('now')),
     FOREIGN KEY (user_id) REFERENCES users(id)
-  );
+  `);
   CREATE TABLE IF NOT EXISTS journal_entries (
     id             INTEGER PRIMARY KEY AUTOINCREMENT,
     user_id        INTEGER NOT NULL,
@@ -83,14 +83,14 @@ db.exec(`
     recovery_steps TEXT,
     created_at     TEXT DEFAULT (datetime('now')),
     FOREIGN KEY (user_id) REFERENCES users(id)
-  );
+  `);
   CREATE TABLE IF NOT EXISTS chat_sessions (
     id           INTEGER PRIMARY KEY AUTOINCREMENT,
     user_id      INTEGER NOT NULL,
     session_name TEXT NOT NULL DEFAULT 'Luna Chat',
     created_at   TEXT DEFAULT (datetime('now')),
     FOREIGN KEY (user_id) REFERENCES users(id)
-  );
+  `);
   CREATE TABLE IF NOT EXISTS chat_messages (
     id         INTEGER PRIMARY KEY AUTOINCREMENT,
     session_id INTEGER NOT NULL,
@@ -100,14 +100,14 @@ db.exec(`
     created_at TEXT DEFAULT (datetime('now')),
     FOREIGN KEY (session_id) REFERENCES chat_sessions(id),
     FOREIGN KEY (user_id) REFERENCES users(id)
-  );
+  `);
   CREATE TABLE IF NOT EXISTS chat_insights (
     id         INTEGER PRIMARY KEY AUTOINCREMENT,
     user_id    INTEGER UNIQUE NOT NULL,
     insights   TEXT,
     updated_at TEXT DEFAULT (datetime('now')),
     FOREIGN KEY (user_id) REFERENCES users(id)
-  );
+  `);
 `);
 
 app.use(express.json());
