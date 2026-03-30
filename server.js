@@ -33,7 +33,7 @@ db.exec('CREATE TABLE IF NOT EXISTS chat_insights (id INTEGER PRIMARY KEY AUTOIN
 // Middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(__dirname, 'public'));
 app.use(session({
   secret: process.env.SESSION_SECRET || 'redmoon-secret-key',
   resave: false,
