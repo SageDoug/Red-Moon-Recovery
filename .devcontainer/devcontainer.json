@@ -4,10 +4,22 @@
   "forwardPorts": [3000],
   "portsAttributes": {
     "3000": {
-      "label": "Red Moon Recovery",
+      "label": "Red Moon Recovery App",
       "onAutoForward": "openBrowser"
     }
   },
   "postCreateCommand": "npm install",
-  "postStartCommand": "node server.js"
+  "postStartCommand": "node server.js",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "dbaeumer.vscode-eslint",
+        "esbenp.prettier-vscode",
+        "humao.rest-client"
+      ],
+      "settings": {
+        "editor.formatOnSave": true
+      }
+    }
+  }
 }
