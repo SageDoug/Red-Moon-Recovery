@@ -1,0 +1,13 @@
+{
+  "name": "Red Moon Recovery",
+  "image": "mcr.microsoft.com/devcontainers/python:3.11",
+  "forwardPorts": [3000],
+  "portsAttributes": {
+    "3000": {
+      "label": "Red Moon Recovery",
+      "onAutoForward": "openBrowser"
+    }
+  },
+  "postCreateCommand": "sudo apt-get update -qq && sudo apt-get install -y -qq default-jdk g++ && pip install -r requirements.txt --quiet && cd java && javac CycleEngine.java && cd ../cpp && g++ -o pattern_analyzer pattern_analyzer.cpp -std=c++17 && echo 'All components built successfully'",
+  "postStartCommand": "python app.py"
+}
