@@ -6,7 +6,8 @@
 <title>Red Moon Recovery</title>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
 <style>
-:root{--cr:#C0392B;--rose:#E8604C;--blush:#F2A59E;--pk:#FDECEA;--pt:#FFF5F4;--cream:#FFFAF9;--dark:#2C1A18;--muted:#8C5A55;--bdr:#F0C8C3;--white:#fff;--sh:rgba(192,57,43,0.12);--coach:#1A6B3C;--trainer:#1A4B8C;--ai:#8B5CF6;}
+:root{--cr:#C0392B;--rose:#E8604C;--blush:#F2A59E;--pk:#FDECEA;--pt:#FFF5F4;--cream:#FFFAF9;--dark:#2C1A18;--muted:#8C5A55;--bdr:#F0C8C3;--white:#fff;--sh:rgba(192,57,43,0.12);--coach:#1A6B3C;--trainer:#1A4B8C;--ai:#8B5CF6;
+--phase-m:#E74C3C;--phase-f:#F39C12;--phase-o:#27AE60;--phase-le:#8E44AD;--phase-ll:#C0392B;}
 *{box-sizing:border-box;margin:0;padding:0;}
 body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--dark);min-height:100vh;overflow-x:hidden;}
 body::before{content:'';position:fixed;inset:0;background:radial-gradient(ellipse 80% 60% at 10% 20%,rgba(242,165,158,0.18) 0%,transparent 60%),radial-gradient(ellipse 60% 80% at 90% 80%,rgba(192,57,43,0.08) 0%,transparent 55%);pointer-events:none;z-index:0;}
@@ -22,7 +23,6 @@ nav button:hover,nav button.active{background:var(--pk);color:var(--cr);}
 .role-trainer{background:#e0e8f0;color:var(--trainer);}
 .btn-logout{background:none;border:1.5px solid var(--bdr);color:var(--muted);font-family:'DM Sans',sans-serif;font-size:0.72rem;padding:0.25rem 0.65rem;border-radius:16px;cursor:pointer;}
 .btn-logout:hover{border-color:var(--cr);color:var(--cr);}
-
 .page{display:none;animation:fadeIn 0.3s ease;position:relative;z-index:1;}
 .page.active{display:block;}
 @keyframes fadeIn{from{opacity:0;transform:translateY(6px);}to{opacity:1;transform:none;}}
@@ -46,8 +46,8 @@ nav button:hover,nav button.active{background:var(--pk);color:var(--cr);}
 .role-opt span{display:block;font-size:1.2rem;margin-bottom:0.2rem;}
 
 /* LAYOUT */
-.wrap{max-width:900px;margin:0 auto;padding:2rem 1.2rem 4rem;}
-.wrap-wide{max-width:1100px;margin:0 auto;padding:2rem 1.2rem 4rem;}
+.wrap{max-width:960px;margin:0 auto;padding:2rem 1.2rem 4rem;}
+.wrap-wide{max-width:1200px;margin:0 auto;padding:2rem 1.2rem 4rem;}
 .sec-title{font-family:'Cormorant Garamond',serif;font-size:1.8rem;font-weight:400;color:var(--dark);margin-bottom:0.25rem;}
 .sec-sub{font-size:0.85rem;color:var(--muted);margin-bottom:1.6rem;font-weight:300;}
 
@@ -55,7 +55,8 @@ nav button:hover,nav button.active{background:var(--pk);color:var(--cr);}
 .card{background:var(--white);border:1px solid var(--bdr);border-radius:18px;padding:1.6rem;margin-bottom:1.2rem;box-shadow:0 2px 12px var(--sh);}
 .card h3{font-family:'Cormorant Garamond',serif;font-size:1.15rem;font-weight:600;color:var(--cr);margin-bottom:1rem;}
 .grid2{display:grid;grid-template-columns:1fr 1fr;gap:1rem;}
-@media(max-width:560px){.grid2{grid-template-columns:1fr;}}
+.grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1rem;}
+@media(max-width:680px){.grid2,.grid3{grid-template-columns:1fr;}}
 
 /* FORMS */
 .fr{margin-bottom:0.9rem;}
@@ -74,14 +75,14 @@ nav button:hover,nav button.active{background:var(--pk);color:var(--cr);}
 .sv{min-width:1.8rem;text-align:center;font-weight:600;font-size:0.95rem;color:var(--cr);}
 
 /* BUTTONS */
-.btn{background:linear-gradient(135deg,var(--cr),var(--rose));color:white;border:none;font-family:'DM Sans',sans-serif;font-size:0.86rem;font-weight:500;padding:0.7rem 1.8rem;border-radius:40px;cursor:pointer;box-shadow:0 4px 16px var(--sh);transition:all 0.2s;letter-spacing:0.02em;}
-.btn:hover{transform:translateY(-1px);box-shadow:0 7px 22px var(--sh);}
+.btn{background:linear-gradient(135deg,var(--cr),var(--rose));color:white;border:none;font-family:'DM Sans',sans-serif;font-size:0.86rem;font-weight:500;padding:0.7rem 1.8rem;border-radius:40px;cursor:pointer;box-shadow:0 4px 16px var(--sh);transition:all 0.2s;}
+.btn:hover{transform:translateY(-1px);}
 .btn:disabled{opacity:0.6;cursor:not-allowed;transform:none;}
-.btn-sm{padding:0.55rem 1.2rem;font-size:0.8rem;width:auto;}
-.btn-outline{background:none;border:1.5px solid var(--bdr);color:var(--muted);font-family:'DM Sans',sans-serif;font-size:0.82rem;padding:0.55rem 1.2rem;border-radius:40px;cursor:pointer;transition:all 0.2s;}
+.btn-sm{padding:0.5rem 1.1rem;font-size:0.78rem;}
+.btn-outline{background:none;border:1.5px solid var(--bdr);color:var(--muted);font-family:'DM Sans',sans-serif;font-size:0.82rem;padding:0.5rem 1.1rem;border-radius:40px;cursor:pointer;transition:all 0.2s;}
 .btn-outline:hover{border-color:var(--rose);color:var(--cr);}
-.btn-coach{background:linear-gradient(135deg,var(--coach),#2a8a50);}
-.btn-trainer{background:linear-gradient(135deg,var(--trainer),#2a6aac);}
+.btn-ghost{background:none;border:none;color:var(--cr);font-family:'DM Sans',sans-serif;font-size:0.8rem;cursor:pointer;text-decoration:underline;padding:0;}
+.btn-confirm{background:linear-gradient(135deg,#27AE60,#2ecc71);color:white;border:none;font-family:'DM Sans',sans-serif;font-size:0.76rem;padding:0.35rem 0.8rem;border-radius:20px;cursor:pointer;}
 
 /* PROGRESS */
 .prog{height:3px;background:var(--bdr);border-radius:3px;margin-bottom:1.6rem;overflow:hidden;}
@@ -93,8 +94,8 @@ nav button:hover,nav button.active{background:var(--pk);color:var(--cr);}
 .hero-moon{font-size:3.8rem;display:block;margin-bottom:0.9rem;animation:float 4s ease-in-out infinite;}
 .hero h1{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,5vw,3rem);font-weight:300;line-height:1.2;color:var(--dark);margin-bottom:0.8rem;}
 .hero h1 em{color:var(--cr);font-style:italic;}
-.hero p{font-size:0.95rem;color:var(--muted);line-height:1.7;margin-bottom:1.8rem;font-weight:300;}
-.feat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:0.9rem;max-width:840px;margin:2rem auto 0;padding:0 1.2rem;}
+.hero p{font-size:0.95rem;color:var(--muted);line-height:1.7;margin-bottom:1.8rem;}
+.feat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(155px,1fr));gap:0.8rem;max-width:900px;margin:2rem auto 0;padding:0 1.2rem;}
 .feat{background:var(--white);border:1px solid var(--bdr);border-radius:14px;padding:1.2rem;text-align:center;box-shadow:0 2px 8px var(--sh);transition:transform 0.2s;}
 .feat:hover{transform:translateY(-2px);}
 .feat .icon{font-size:1.7rem;margin-bottom:0.5rem;display:block;}
@@ -102,29 +103,62 @@ nav button:hover,nav button.active{background:var(--pk);color:var(--cr);}
 .feat p{font-size:0.74rem;color:var(--muted);line-height:1.4;}
 
 /* CALENDAR */
-.cal-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:1rem;}
-.cal-nav-btn{background:none;border:1.5px solid var(--bdr);border-radius:50%;width:32px;height:32px;cursor:pointer;font-size:1rem;display:flex;align-items:center;justify-content:center;color:var(--muted);transition:all 0.2s;}
-.cal-nav-btn:hover{border-color:var(--cr);color:var(--cr);}
-.cal-month{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:400;}
 .cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:3px;}
 .cal-day-label{text-align:center;font-size:0.7rem;font-weight:600;color:var(--muted);padding:0.5rem 0;text-transform:uppercase;background:var(--pt);border-radius:6px;}
-.cal-day{min-height:90px;background:var(--pt);border:1px solid var(--bdr);border-radius:8px;padding:0.4rem 0.4rem;cursor:pointer;transition:background 0.15s;position:relative;overflow:hidden;}
+.cal-day{min-height:90px;background:var(--pt);border:1px solid var(--bdr);border-radius:8px;padding:0.4rem;cursor:pointer;transition:background 0.15s;overflow:hidden;}
 .cal-day:hover{background:var(--pk);}
 .cal-day.today{border-color:var(--cr);border-width:2px;background:var(--pk);}
 .cal-day.other-month{opacity:0.3;pointer-events:none;}
+.cal-day.predicted-day{background:rgba(139,92,246,0.06);border-color:rgba(139,92,246,0.3);}
 .cal-day-num{font-size:0.8rem;font-weight:600;color:var(--dark);margin-bottom:0.25rem;line-height:1;}
-.cal-day.today .cal-day-num{color:var(--cr);font-size:0.85rem;}
-.cal-event{font-size:0.64rem;padding:0.12rem 0.35rem;border-radius:4px;color:white;margin-bottom:1px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;cursor:pointer;}
+.cal-day.today .cal-day-num{color:var(--cr);}
+.cal-event{font-size:0.63rem;padding:0.1rem 0.3rem;border-radius:4px;color:white;margin-bottom:1px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;cursor:pointer;line-height:1.4;}
 .cal-event.ai-event{background:var(--ai);}
+.cal-event.auto-journal-event{background:rgba(139,92,246,0.7);font-style:italic;}
 .cal-event.coach-event{background:var(--coach);}
 .cal-event.trainer-event{background:var(--trainer);}
 .cal-event.athlete-event{background:var(--cr);}
-.cal-legend{display:flex;gap:1rem;flex-wrap:wrap;margin-top:0.8rem;font-size:0.74rem;}
+.cal-legend{display:flex;gap:1rem;flex-wrap:wrap;margin-top:0.8rem;font-size:0.72rem;align-items:center;}
 .legend-dot{width:10px;height:10px;border-radius:50%;display:inline-block;margin-right:0.3rem;}
 .event-modal{position:fixed;inset:0;background:rgba(0,0,0,0.4);z-index:300;display:none;align-items:center;justify-content:center;padding:1rem;}
 .event-modal.open{display:flex;}
-.event-modal-box{background:var(--white);border-radius:18px;padding:1.8rem;width:100%;max-width:420px;box-shadow:0 8px 40px var(--sh);}
+.event-modal-box{background:var(--white);border-radius:18px;padding:1.8rem;width:100%;max-width:440px;box-shadow:0 8px 40px var(--sh);}
 .event-modal-box h3{font-family:'Cormorant Garamond',serif;font-size:1.3rem;color:var(--cr);margin-bottom:1.2rem;}
+
+/* AUTO-JOURNAL */
+.auto-banner{background:linear-gradient(135deg,rgba(139,92,246,0.1),rgba(139,92,246,0.05));border:1.5px solid rgba(139,92,246,0.25);border-radius:14px;padding:1rem 1.2rem;margin-bottom:1rem;display:flex;align-items:center;gap:0.8rem;flex-wrap:wrap;}
+.auto-banner .ai-icon{font-size:1.4rem;flex-shrink:0;}
+.auto-banner h4{font-size:0.88rem;font-weight:600;color:var(--ai);margin-bottom:0.1rem;}
+.auto-banner p{font-size:0.78rem;color:var(--muted);line-height:1.4;}
+.progress-track{height:8px;background:var(--bdr);border-radius:4px;overflow:hidden;margin-top:0.5rem;}
+.progress-track-fill{height:100%;border-radius:4px;background:linear-gradient(90deg,var(--ai),#a78bfa);transition:width 0.5s;}
+.predicted-entry-banner{background:rgba(139,92,246,0.07);border:1px solid rgba(139,92,246,0.2);border-radius:10px;padding:0.7rem 1rem;margin-bottom:1rem;font-size:0.82rem;color:#5b21b6;display:flex;align-items:center;justify-content:space-between;gap:0.5rem;flex-wrap:wrap;}
+.deviation-badge{background:#fef3c7;border:1px solid #fbbf24;border-radius:6px;padding:0.15rem 0.5rem;font-size:0.7rem;font-weight:600;color:#92400e;}
+
+/* COGNITIVE */
+.cog-radar{display:grid;grid-template-columns:1fr 1fr;gap:0.8rem;}
+.cog-dim{background:var(--pt);border:1px solid var(--bdr);border-radius:10px;padding:0.7rem 0.9rem;}
+.cog-dim-label{font-size:0.72rem;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:0.04em;margin-bottom:0.3rem;}
+.cog-dim-bar{height:6px;border-radius:3px;background:var(--bdr);margin-bottom:0.2rem;overflow:hidden;}
+.cog-dim-fill{height:100%;border-radius:3px;transition:width 0.5s;}
+.cog-dim-val{font-size:0.75rem;font-weight:600;color:var(--dark);}
+.cog-dim-trend{font-size:0.68rem;color:var(--muted);line-height:1.3;margin-top:0.2rem;}
+.phase-cog-card{border-radius:14px;padding:1.2rem;margin-bottom:0.8rem;}
+.phase-m-bg{background:rgba(231,76,60,0.06);border:1px solid rgba(231,76,60,0.2);}
+.phase-f-bg{background:rgba(243,156,18,0.06);border:1px solid rgba(243,156,18,0.2);}
+.phase-o-bg{background:rgba(39,174,96,0.06);border:1px solid rgba(39,174,96,0.2);}
+.phase-le-bg{background:rgba(142,68,173,0.06);border:1px solid rgba(142,68,173,0.2);}
+.phase-ll-bg{background:rgba(192,57,43,0.06);border:1px solid rgba(192,57,43,0.2);}
+.phase-tag{display:inline-block;font-size:0.7rem;font-weight:700;padding:0.2rem 0.6rem;border-radius:8px;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:0.6rem;}
+.impact-box{background:var(--white);border-radius:10px;padding:0.8rem 1rem;font-size:0.82rem;line-height:1.6;color:var(--dark);border-left:3px solid var(--cr);}
+.coaching-box{background:#f0fdf4;border-radius:10px;padding:0.8rem 1rem;font-size:0.8rem;line-height:1.6;color:#166534;border-left:3px solid #22c55e;margin-top:0.6rem;}
+.cog-score-ring{display:flex;align-items:center;gap:1.2rem;margin-bottom:1rem;}
+.score-ring-num{font-family:'Cormorant Garamond',serif;font-size:2.5rem;font-weight:600;color:var(--cr);line-height:1;}
+.score-ring-label{font-size:0.72rem;color:var(--muted);}
+.cog-tabs{display:flex;gap:0.3rem;margin-bottom:1.2rem;flex-wrap:wrap;}
+.cog-tab{background:none;border:1.5px solid var(--bdr);color:var(--muted);font-family:'DM Sans',sans-serif;font-size:0.76rem;padding:0.35rem 0.8rem;border-radius:20px;cursor:pointer;transition:all 0.2s;}
+.cog-tab.active{background:var(--pk);border-color:var(--cr);color:var(--cr);font-weight:600;}
+.cog-panel{display:none;}.cog-panel.active{display:block;}
 
 /* CHAT */
 .chat-layout{display:grid;grid-template-columns:200px 1fr;gap:1rem;align-items:start;}
@@ -144,8 +178,6 @@ nav button:hover,nav button.active{background:var(--pk);color:var(--cr);}
 .sess-item:hover .sess-del{opacity:1;}
 .ins-panel{padding:0.9rem 1rem;border-top:1px solid var(--bdr);}
 .ins-panel h4{font-size:0.72rem;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:0.05em;margin-bottom:0.6rem;}
-.ins-tag{font-size:0.7rem;background:var(--pk);color:var(--cr);padding:0.25rem 0.55rem;border-radius:8px;margin-bottom:0.35rem;display:block;line-height:1.4;}
-
 .chat-main{background:var(--white);border:1px solid var(--bdr);border-radius:18px;overflow:hidden;box-shadow:0 4px 20px var(--sh);display:flex;flex-direction:column;}
 .chat-hdr{background:linear-gradient(135deg,var(--cr),var(--rose));padding:0.9rem 1.2rem;display:flex;align-items:center;gap:0.65rem;}
 .chat-av{width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,0.22);display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0;}
@@ -164,38 +196,12 @@ nav button:hover,nav button.active{background:var(--pk);color:var(--cr);}
 .typing span:nth-child(2){animation-delay:0.2s;}.typing span:nth-child(3){animation-delay:0.4s;}
 @keyframes bounce{0%,80%,100%{transform:translateY(0);}40%{transform:translateY(-5px);}}
 .suggs{padding:0.6rem 1.1rem 0;display:flex;flex-wrap:wrap;gap:0.35rem;}
-.sug{background:var(--pk);border:1.5px solid var(--bdr);border-radius:16px;padding:0.3rem 0.8rem;font-size:0.73rem;color:var(--cr);font-weight:500;cursor:pointer;font-family:'DM Sans',sans-serif;transition:all 0.15s;}
+.sug{background:var(--pk);border:1.5px solid var(--bdr);border-radius:16px;padding:0.3rem 0.8rem;font-size:0.73rem;color:var(--cr);font-weight:500;cursor:pointer;font-family:'DM Sans',sans-serif;}
 .sug:hover{background:var(--cr);color:white;border-color:transparent;}
 .chat-inp{display:flex;gap:0.55rem;padding:0.85rem 1.1rem;border-top:1px solid var(--bdr);background:white;}
 .chat-inp input{flex:1;border:1.5px solid var(--bdr);border-radius:40px;padding:0.6rem 1.1rem;font-family:'DM Sans',sans-serif;font-size:0.83rem;outline:none;background:var(--pt);}
 .chat-inp input:focus{border-color:var(--rose);}
-.chat-inp input:disabled{opacity:0.6;}
 .send-btn{background:linear-gradient(135deg,var(--cr),var(--rose));border:none;border-radius:50%;width:38px;height:38px;color:white;font-size:0.9rem;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
-.send-btn:disabled{opacity:0.5;cursor:not-allowed;}
-
-/* TEAM */
-.team-card{background:var(--white);border:1px solid var(--bdr);border-radius:18px;padding:1.4rem;margin-bottom:1rem;box-shadow:0 2px 10px var(--sh);}
-.team-name{font-family:'Cormorant Garamond',serif;font-size:1.2rem;color:var(--cr);margin-bottom:0.5rem;}
-.member-list{display:flex;flex-wrap:wrap;gap:0.4rem;margin-top:0.7rem;}
-.member-chip{font-size:0.75rem;padding:0.22rem 0.65rem;border-radius:10px;background:var(--pk);color:var(--cr);}
-.member-chip.coach{background:#e0f0e8;color:var(--coach);}
-.member-chip.trainer{background:#e0e8f0;color:var(--trainer);}
-.invite-box{background:var(--pt);border:1.5px dashed var(--bdr);border-radius:10px;padding:0.7rem 1rem;font-size:0.82rem;color:var(--muted);margin-top:0.8rem;display:flex;align-items:center;justify-content:space-between;gap:0.5rem;}
-.invite-code{font-family:monospace;font-size:1rem;font-weight:700;color:var(--cr);letter-spacing:0.1em;}
-
-/* PREDICTION */
-.pred-card{background:linear-gradient(135deg,rgba(192,57,43,0.06),rgba(232,96,76,0.04));border:1px solid var(--bdr);border-radius:18px;padding:1.6rem;margin-bottom:1rem;}
-.pred-title{font-family:'Cormorant Garamond',serif;font-size:1.25rem;color:var(--cr);margin-bottom:1rem;}
-.pred-row{display:flex;justify-content:space-between;padding:0.5rem 0;border-bottom:1px solid var(--bdr);font-size:0.84rem;}
-.pred-row:last-child{border-bottom:none;}
-.pred-label{color:var(--muted);font-weight:500;}
-.pred-value{color:var(--dark);font-weight:600;}
-.conf-badge{font-size:0.68rem;padding:0.2rem 0.55rem;border-radius:8px;font-weight:600;text-transform:uppercase;}
-.conf-high{background:#e0f0e8;color:var(--coach);}
-.conf-medium{background:#fff8e1;color:#a07000;}
-.conf-low{background:#fff0ef;color:var(--cr);}
-.alert-item{background:#fff8e1;border-left:3px solid #f59e0b;padding:0.55rem 0.8rem;border-radius:0 8px 8px 0;font-size:0.8rem;color:#7a5c00;margin-bottom:0.5rem;}
-.flag-item{background:#fff0ef;border-left:3px solid var(--cr);padding:0.55rem 0.8rem;border-radius:0 8px 8px 0;font-size:0.8rem;color:var(--cr);margin-bottom:0.5rem;}
 
 /* MISC */
 #toast{position:fixed;bottom:1.8rem;left:50%;transform:translateX(-50%) translateY(20px);background:var(--dark);color:white;padding:0.65rem 1.5rem;border-radius:40px;font-size:0.82rem;font-weight:500;opacity:0;transition:all 0.3s;z-index:999;pointer-events:none;white-space:nowrap;}
@@ -205,10 +211,12 @@ nav button:hover,nav button.active{background:var(--pk);color:var(--cr);}
 .divider{height:1px;background:var(--bdr);margin:1.2rem 0;}
 .empty-state{text-align:center;padding:2rem;color:var(--muted);font-size:0.85rem;}
 .success-box{text-align:center;padding:2rem;}
-.success-box .big-icon{font-size:3rem;margin-bottom:0.8rem;display:block;}
-.success-box h2{font-family:'Cormorant Garamond',serif;font-size:1.6rem;color:var(--cr);}
-.success-box p{color:var(--muted);font-size:0.86rem;margin-top:0.4rem;}
-@media(max-width:600px){header{padding:0 0.7rem;} .wrap{padding:1.2rem 0.9rem 3rem;} nav button{padding:0.3rem 0.5rem;font-size:0.72rem;}}
+.team-card{background:var(--white);border:1px solid var(--bdr);border-radius:18px;padding:1.4rem;margin-bottom:1rem;box-shadow:0 2px 10px var(--sh);}
+.member-chip{font-size:0.75rem;padding:0.22rem 0.65rem;border-radius:10px;background:var(--pk);color:var(--cr);display:inline-block;margin:0.2rem;}
+.member-chip.coach{background:#e0f0e8;color:var(--coach);}
+.member-chip.trainer{background:#e0e8f0;color:var(--trainer);}
+.invite-code{font-family:monospace;font-size:1rem;font-weight:700;color:var(--cr);letter-spacing:0.1em;}
+@media(max-width:600px){header{padding:0 0.7rem;}.wrap{padding:1.2rem 0.9rem 3rem;}nav button{font-size:0.7rem;padding:0.3rem 0.45rem;}}
 </style>
 </head>
 <body>
@@ -217,10 +225,7 @@ nav button:hover,nav button.active{background:var(--pk);color:var(--cr);}
 <div id="auth-screen">
 <div class="auth-box">
   <div class="auth-logo"><span class="moon">🌕</span><h1>Red Moon Recovery</h1><p>Train with your cycle, not against it.</p></div>
-  <div class="auth-tabs">
-    <button class="auth-tab active" onclick="switchAuth('login')">Sign In</button>
-    <button class="auth-tab" onclick="switchAuth('register')">Create Account</button>
-  </div>
+  <div class="auth-tabs"><button class="auth-tab active" onclick="switchAuth('login')">Sign In</button><button class="auth-tab" onclick="switchAuth('register')">Create Account</button></div>
   <div class="auth-form active" id="auth-login">
     <div class="auth-err" id="login-err"></div>
     <div class="fr"><label>Username</label><input type="text" id="li-user" placeholder="your username"/></div>
@@ -244,23 +249,19 @@ nav button:hover,nav button.active{background:var(--pk);color:var(--cr);}
 </div>
 </div>
 
-<!-- APP -->
 <header>
   <div class="logo">🌕 Red Moon Recovery</div>
   <nav id="app-nav">
     <button class="active" onclick="showPage('home',this)">Home</button>
     <button onclick="showPage('journal',this)" id="nav-journal">Journal</button>
     <button onclick="showPage('calendar',this)">Calendar</button>
+    <button onclick="showPage('cognitive',this)">Cognitive</button>
     <button onclick="showPage('bot',this)">Luna AI</button>
     <button onclick="showPage('predict',this)" id="nav-predict">Predict</button>
     <button onclick="showPage('team',this)">Team</button>
     <button onclick="showPage('profile',this)">Profile</button>
   </nav>
-  <div class="user-chip">
-    <span class="role-badge" id="role-badge"></span>
-    <strong id="hdr-name" style="color:var(--cr)"></strong>
-    <button class="btn-logout" onclick="doLogout()">Out</button>
-  </div>
+  <div class="user-chip"><span class="role-badge" id="role-badge"></span><strong id="hdr-name" style="color:var(--cr)"></strong><button class="btn-logout" onclick="doLogout()">Out</button></div>
 </header>
 
 <main>
@@ -270,15 +271,16 @@ nav button:hover,nav button.active{background:var(--pk);color:var(--cr);}
 <div class="hero">
   <span class="hero-moon">🌕</span>
   <h1>Train with your cycle,<br/><em>not against it.</em></h1>
-  <p>Red Moon Recovery maps your menstrual cycle to performance, recovery, and wellbeing. Predict what your body needs — before it tells you.</p>
-  <button class="btn btn-sm" onclick="showPage('journal',document.querySelector('#app-nav button:nth-child(2)'))">Start Logging</button>
+  <p>Log your data. Luna learns your patterns. After enough entries, Luna predicts your days automatically — you only track what changes.</p>
+  <button class="btn" style="width:auto;padding:0.7rem 2rem" onclick="showPage('journal',document.querySelector('#app-nav button:nth-child(2)'))">Start Logging</button>
 </div>
 <div class="feat-grid">
-  <div class="feat"><span class="icon">📓</span><h3>Smart Journal</h3><p>Log injuries, environment, flow and mood — Luna learns your patterns.</p></div>
-  <div class="feat"><span class="icon">📅</span><h3>Shared Calendar</h3><p>Athletes, coaches, trainers, and Luna all add to the same plan.</p></div>
-  <div class="feat"><span class="icon">🤖</span><h3>Luna AI</h3><p>Asks follow-up questions based on your data, including yesterday's entry.</p></div>
-  <div class="feat"><span class="icon">🔮</span><h3>Predictions</h3><p>Next period, ovulation, phase at your event — with environmental adjustments.</p></div>
-  <div class="feat"><span class="icon">👥</span><h3>Teams</h3><p>Join a coach's team. Coaches see all athlete data. Trainers add calendar events.</p></div>
+  <div class="feat"><span class="icon">📓</span><h3>Smart Journal</h3><p>Log injuries, environment, stress and flow. Luna learns faster the more detail you give.</p></div>
+  <div class="feat"><span class="icon">🤖</span><h3>Auto-Journal</h3><p>After 28 entries, Luna generates your daily predictions. You only log deviations.</p></div>
+  <div class="feat"><span class="icon">🧠</span><h3>Cognitive Map</h3><p>Track verbal fluency, working memory, risk tolerance, self-criticism across all four phases.</p></div>
+  <div class="feat"><span class="icon">📅</span><h3>Smart Calendar</h3><p>Luna fills in predicted training and cognitive readiness. Coaches and trainers add to the same plan.</p></div>
+  <div class="feat"><span class="icon">🔮</span><h3>Predictions</h3><p>Java engine predicts period timing with environmental and stress adjustments.</p></div>
+  <div class="feat"><span class="icon">👥</span><h3>Teams</h3><p>Athletes join a coach's team. Coaches see all data. Trainers add calendar events.</p></div>
 </div>
 </div>
 
@@ -286,7 +288,13 @@ nav button:hover,nav button.active{background:var(--pk);color:var(--cr);}
 <div id="journal" class="page">
 <div class="wrap">
   <div class="sec-title">Daily Journal</div>
-  <div class="sec-sub">Every entry improves Luna's predictions. Log injuries and environmental conditions for best results.</div>
+  <div class="sec-sub" id="journal-sub">Log your daily data. Luna uses it to build your personal predictions.</div>
+
+  <!-- Auto-journal status banner -->
+  <div id="auto-journal-banner" style="display:none"></div>
+
+  <!-- Predicted entry banner (shown when today's entry is a prediction) -->
+  <div id="predicted-banner" style="display:none"></div>
 
   <div class="card" style="display:flex;gap:1rem;flex-wrap:wrap;align-items:flex-end;padding:1.2rem">
     <div class="fr" style="margin:0;flex:1;min-width:130px"><label>Date</label><input type="date" id="j-date"/></div>
@@ -309,47 +317,44 @@ nav button:hover,nav button.active{background:var(--pk);color:var(--cr);}
       <div class="fr"><label>Sleep Quality (1-10)</label><div class="scale-row"><input type="range" min="1" max="10" value="5" id="j-sq" oninput="updScale(this,'j-sq-v')"/><span class="sv" id="j-sq-v">5</span></div></div>
       <div class="fr"><label>Sleep Hours</label><input type="number" id="j-sh" min="1" max="14" placeholder="e.g. 8"/></div>
       <div class="fr"><label>Energy</label><div class="check-group" id="j-energy"><label class="pill" onclick="selOne(this,'j-energy')"><input type="radio"/>High</label><label class="pill" onclick="selOne(this,'j-energy')"><input type="radio"/>Steady</label><label class="pill" onclick="selOne(this,'j-energy')"><input type="radio"/>Low</label></div></div>
-      <div class="fr"><label>Soreness</label><div class="check-group" id="j-soreness"><label class="pill" onclick="selOne(this,'j-soreness')"><input type="radio"/>None</label><label class="pill" onclick="selOne(this,'j-soreness')"><input type="radio"/>Normal</label><label class="pill" onclick="selOne(this,'j-soreness')"><input type="radio"/>Sharp/Specific</label></div></div>
-      <div class="fr"><label>Pain Location Notes</label><input type="text" id="j-pain" placeholder="e.g. left knee"/></div>
+      <div class="fr"><label>Soreness</label><div class="check-group" id="j-soreness"><label class="pill" onclick="selOne(this,'j-soreness')"><input type="radio"/>None</label><label class="pill" onclick="selOne(this,'j-soreness')"><input type="radio"/>Normal</label><label class="pill" onclick="selOne(this,'j-soreness')"><input type="radio"/>Sharp</label></div></div>
+      <div class="fr"><label>Pain Notes</label><input type="text" id="j-pain" placeholder="location and description"/></div>
     </div>
-
     <div class="card">
-      <h3>🏃 Training Performance</h3>
-      <div class="fr"><label>Today's Workout</label><input type="text" id="j-workout" placeholder="e.g. 8km tempo run"/></div>
+      <h3>🏃 Training</h3>
+      <div class="fr"><label>Workout</label><input type="text" id="j-workout" placeholder="e.g. 8km tempo run"/></div>
       <div class="fr"><label>RPE (1-10)</label><div class="scale-row"><input type="range" min="1" max="10" value="5" id="j-rpe" oninput="updScale(this,'j-rpe-v')"/><span class="sv" id="j-rpe-v">5</span></div></div>
       <div class="fr"><label>Motivation (1-10)</label><div class="scale-row"><input type="range" min="1" max="10" value="5" id="j-mot" oninput="updScale(this,'j-mot-v')"/><span class="sv" id="j-mot-v">5</span></div></div>
       <div class="fr"><label>Stress Level (1-10)</label><div class="scale-row"><input type="range" min="1" max="10" value="3" id="j-stress" oninput="updScale(this,'j-str-v')"/><span class="sv" id="j-str-v">3</span></div></div>
-      <div class="fr"><label>Performance Notes</label><textarea id="j-notes" placeholder="e.g. felt powerful, heavy legs, hit PR"></textarea></div>
+      <div class="fr"><label>Notes</label><textarea id="j-notes" placeholder="felt powerful, heavy legs, PR..."></textarea></div>
     </div>
-
     <div class="card">
       <h3>🌸 Cycle Symptoms</h3>
       <div class="fr"><label>Flow</label><div class="check-group" id="j-flow"><label class="pill" onclick="selOne(this,'j-flow')"><input type="radio"/>None</label><label class="pill" onclick="selOne(this,'j-flow')"><input type="radio"/>Spotting</label><label class="pill" onclick="selOne(this,'j-flow')"><input type="radio"/>Light</label><label class="pill" onclick="selOne(this,'j-flow')"><input type="radio"/>Medium</label><label class="pill" onclick="selOne(this,'j-flow')"><input type="radio"/>Heavy</label></div></div>
       <div class="fr"><label>Cramps</label><div class="check-group" id="j-cramps"><label class="pill" onclick="selOne(this,'j-cramps')"><input type="radio"/>None</label><label class="pill" onclick="selOne(this,'j-cramps')"><input type="radio"/>Mild</label><label class="pill" onclick="selOne(this,'j-cramps')"><input type="radio"/>Distracting</label><label class="pill" onclick="selOne(this,'j-cramps')"><input type="radio"/>Severe</label></div></div>
       <div class="fr"><label>Cervical Mucus</label><div class="check-group" id="j-mucus"><label class="pill" onclick="selOne(this,'j-mucus')"><input type="radio"/>Dry</label><label class="pill" onclick="selOne(this,'j-mucus')"><input type="radio"/>Sticky</label><label class="pill" onclick="selOne(this,'j-mucus')"><input type="radio"/>Creamy</label><label class="pill" onclick="selOne(this,'j-mucus')"><input type="radio"/>Egg White</label></div></div>
-      <div class="fr"><label>Digestion Notes</label><input type="text" id="j-dig" placeholder="e.g. bloating"/></div>
-      <div class="fr"><label>Symptom Start Time</label><div class="check-group" id="j-sym-time"><label class="pill" onclick="selOne(this,'j-sym-time')"><input type="radio"/>Morning</label><label class="pill" onclick="selOne(this,'j-sym-time')"><input type="radio"/>Afternoon</label><label class="pill" onclick="selOne(this,'j-sym-time')"><input type="radio"/>Evening</label><label class="pill" onclick="selOne(this,'j-sym-time')"><input type="radio"/>N/A</label></div></div>
+      <div class="fr"><label>Digestion</label><input type="text" id="j-dig" placeholder="e.g. bloating"/></div>
     </div>
-
     <div class="card">
-      <h3>🧠 Mental State</h3>
+      <h3>🧠 Cognitive State</h3>
       <div class="fr"><label>Mood</label><div class="check-group" id="j-mood"><label class="pill" onclick="selOne(this,'j-mood')"><input type="radio"/>Confident</label><label class="pill" onclick="selOne(this,'j-mood')"><input type="radio"/>Focused</label><label class="pill" onclick="selOne(this,'j-mood')"><input type="radio"/>Anxious</label><label class="pill" onclick="selOne(this,'j-mood')"><input type="radio"/>Irritable</label><label class="pill" onclick="selOne(this,'j-mood')"><input type="radio"/>Reclusive</label></div></div>
       <div class="fr"><label>Cognitive Function</label><div class="check-group" id="j-cog"><label class="pill" onclick="selOne(this,'j-cog')"><input type="radio"/>Flow State</label><label class="pill" onclick="selOne(this,'j-cog')"><input type="radio"/>Normal</label><label class="pill" onclick="selOne(this,'j-cog')"><input type="radio"/>Brain Fog</label></div></div>
-      <div class="fr"><label>Social Inclination</label><div class="check-group" id="j-social"><label class="pill" onclick="selOne(this,'j-social')"><input type="radio"/>Social</label><label class="pill" onclick="selOne(this,'j-social')"><input type="radio"/>Neutral</label><label class="pill" onclick="selOne(this,'j-social')"><input type="radio"/>Withdrawing</label></div></div>
+      <div class="fr"><label>Competitive Drive (1-10)</label><div class="scale-row"><input type="range" min="1" max="10" value="5" id="j-cd" oninput="updScale(this,'j-cd-v')"/><span class="sv" id="j-cd-v">5</span></div></div>
+      <div class="fr"><label>Self-Criticism (1-10)</label><div class="scale-row"><input type="range" min="1" max="10" value="4" id="j-sc" oninput="updScale(this,'j-sc-v')"/><span class="sv" id="j-sc-v">4</span></div></div>
+      <div class="fr"><label>Risk Tolerance (1-10)</label><div class="scale-row"><input type="range" min="1" max="10" value="5" id="j-rt" oninput="updScale(this,'j-rt-v')"/><span class="sv" id="j-rt-v">5</span></div></div>
+      <div class="fr"><label>Working Memory (1-10)</label><div class="scale-row"><input type="range" min="1" max="10" value="5" id="j-wm" oninput="updScale(this,'j-wm-v')"/><span class="sv" id="j-wm-v">5</span></div></div>
+      <div class="fr"><label>Cognitive Notes</label><textarea id="j-cog-notes" placeholder="Any notable cognitive experiences today..."></textarea></div>
     </div>
   </div>
 
-  <!-- NEW: Injuries and Environment -->
   <div class="card">
     <h3>⚠️ Injuries and Environment</h3>
     <div class="grid2">
-      <div>
-        <div class="fr"><label>Current Injuries or Pain</label><textarea id="j-injuries" placeholder="e.g. left knee tweak, tight hip flexor, nothing"></textarea></div>
-      </div>
+      <div class="fr" style="margin:0"><label>Injuries / Pain</label><textarea id="j-injuries" placeholder="e.g. left knee tweak, nothing"></textarea></div>
       <div>
         <div class="fr"><label>Temperature</label><div class="check-group" id="j-temp"><label class="pill" onclick="selOne(this,'j-temp')"><input type="radio"/>Very Cold</label><label class="pill" onclick="selOne(this,'j-temp')"><input type="radio"/>Cold</label><label class="pill" onclick="selOne(this,'j-temp')"><input type="radio"/>Moderate</label><label class="pill" onclick="selOne(this,'j-temp')"><input type="radio"/>Hot</label><label class="pill" onclick="selOne(this,'j-temp')"><input type="radio"/>Very Hot</label></div></div>
         <div class="fr"><label>Humidity</label><div class="check-group" id="j-humid"><label class="pill" onclick="selOne(this,'j-humid')"><input type="radio"/>Low</label><label class="pill" onclick="selOne(this,'j-humid')"><input type="radio"/>Normal</label><label class="pill" onclick="selOne(this,'j-humid')"><input type="radio"/>High</label><label class="pill" onclick="selOne(this,'j-humid')"><input type="radio"/>Very High</label></div></div>
-        <div class="fr"><label>Environmental Notes</label><input type="text" id="j-env-notes" placeholder="e.g. traveling, altitude change, extreme heat week"/></div>
+        <div class="fr"><label>Environmental Notes</label><input type="text" id="j-env-notes" placeholder="travel, altitude, extreme conditions"/></div>
       </div>
     </div>
   </div>
@@ -357,13 +362,16 @@ nav button:hover,nav button.active{background:var(--pk);color:var(--cr);}
   <div class="card">
     <h3>🥗 Nutrition and Recovery</h3>
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem">
-      <div class="fr" style="margin:0"><label>Cravings</label><input type="text" id="j-cravings" placeholder="e.g. salty, sweet, carbs"/></div>
+      <div class="fr" style="margin:0"><label>Cravings</label><input type="text" id="j-cravings" placeholder="e.g. salty, sweet"/></div>
       <div class="fr" style="margin:0"><label>Hydration</label><div class="check-group" id="j-hydration"><label class="pill" onclick="selOne(this,'j-hydration')"><input type="radio"/>Excellent</label><label class="pill" onclick="selOne(this,'j-hydration')"><input type="radio"/>Sufficient</label><label class="pill" onclick="selOne(this,'j-hydration')"><input type="radio"/>Dehydrated</label></div></div>
     </div>
     <div class="fr" style="margin-top:0.8rem"><label>Recovery Steps</label><div class="check-group" id="j-recovery"><label class="pill" onclick="togPill(this)"><input type="checkbox"/>Stretching</label><label class="pill" onclick="togPill(this)"><input type="checkbox"/>Foam Rolling</label><label class="pill" onclick="togPill(this)"><input type="checkbox"/>Nap</label><label class="pill" onclick="togPill(this)"><input type="checkbox"/>Extra Protein</label><label class="pill" onclick="togPill(this)"><input type="checkbox"/>Ice Bath</label><label class="pill" onclick="togPill(this)"><input type="checkbox"/>Meditation</label></div></div>
   </div>
 
-  <div style="text-align:center"><button class="btn btn-sm" onclick="saveJournal()" id="btn-save-j">Save Entry</button></div>
+  <div style="text-align:center;display:flex;gap:0.8rem;justify-content:center;flex-wrap:wrap">
+    <button class="btn" onclick="saveJournal()" id="btn-save-j">Save Entry</button>
+    <button class="btn-outline" id="btn-confirm-pred" style="display:none" onclick="confirmPrediction()">Confirm Prediction (no changes)</button>
+  </div>
 </div>
 </div>
 
@@ -372,14 +380,13 @@ nav button:hover,nav button.active{background:var(--pk);color:var(--cr);}
 <div class="wrap-wide">
   <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;margin-bottom:1rem">
     <div><div class="sec-title">Calendar</div><div class="sec-sub">Your plan — updated by you, your coach, trainer, and Luna.</div></div>
-    <button class="btn btn-sm" onclick="openAddEvent()">+ Add Event</button>
+    <button class="btn" style="width:auto" onclick="openAddEvent()">+ Add Event</button>
   </div>
-
   <div class="card">
-    <div class="cal-header">
-      <button class="cal-nav-btn" onclick="changeMonth(-1)">&#8249;</button>
-      <span class="cal-month" id="cal-month-label"></span>
-      <button class="cal-nav-btn" onclick="changeMonth(1)">&#8250;</button>
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:1rem">
+      <button class="btn-outline btn-sm" onclick="changeMonth(-1)">&#8249;</button>
+      <span style="font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:400" id="cal-month-label"></span>
+      <button class="btn-outline btn-sm" onclick="changeMonth(1)">&#8250;</button>
     </div>
     <div class="cal-grid" id="cal-grid">
       <div class="cal-day-label">Sun</div><div class="cal-day-label">Mon</div><div class="cal-day-label">Tue</div>
@@ -387,10 +394,50 @@ nav button:hover,nav button.active{background:var(--pk);color:var(--cr);}
     </div>
     <div class="cal-legend">
       <span><span class="legend-dot" style="background:var(--cr)"></span>Your events</span>
-      <span><span class="legend-dot" style="background:var(--coach)"></span>Coach events</span>
-      <span><span class="legend-dot" style="background:var(--trainer)"></span>Trainer events</span>
-      <span><span class="legend-dot" style="background:var(--ai)"></span>Luna AI events</span>
+      <span><span class="legend-dot" style="background:var(--coach)"></span>Coach</span>
+      <span><span class="legend-dot" style="background:var(--trainer)"></span>Trainer</span>
+      <span><span class="legend-dot" style="background:rgba(139,92,246,0.7)"></span>Luna predicted</span>
+      <span><span class="legend-dot" style="background:var(--ai)"></span>Luna AI</span>
     </div>
+  </div>
+</div>
+</div>
+
+<!-- COGNITIVE -->
+<div id="cognitive" class="page">
+<div class="wrap">
+  <div class="sec-title">Cognitive Performance Map</div>
+  <div class="sec-sub">How your mental performance, decision-making, and psychology shift across your cycle — and what it means for your sport.</div>
+
+  <div class="cog-tabs">
+    <button class="cog-tab active" onclick="showCogTab('today',this)">Today</button>
+    <button class="cog-tab" onclick="showCogTab('phases',this)">All Phases</button>
+    <button class="cog-tab" onclick="showCogTab('my-baselines',this)">My Baselines</button>
+    <button class="cog-tab" onclick="showCogTab('coaching',this)">Coaching Notes</button>
+  </div>
+
+  <!-- TODAY -->
+  <div class="cog-panel active" id="cog-today">
+    <div id="cog-today-content"><div class="empty-state">Loading your cognitive prediction...</div></div>
+  </div>
+
+  <!-- ALL PHASES -->
+  <div class="cog-panel" id="cog-phases">
+    <div id="cog-phases-content"></div>
+  </div>
+
+  <!-- MY BASELINES -->
+  <div class="cog-panel" id="cog-my-baselines">
+    <div class="card" style="margin-bottom:0.8rem">
+      <p style="font-size:0.85rem;color:var(--muted);line-height:1.6">Your personal cognitive baselines are calculated from your actual journal entries. As you log more data, these become more accurate and unique to you.</p>
+      <div style="margin-top:0.8rem"><button class="btn btn-sm" onclick="refreshBaselines()">Recalculate Baselines</button></div>
+    </div>
+    <div id="cog-baselines-content"><div class="empty-state">Log cognitive data in your journal to see your personal baselines here.</div></div>
+  </div>
+
+  <!-- COACHING NOTES -->
+  <div class="cog-panel" id="cog-coaching">
+    <div id="cog-coaching-content"></div>
   </div>
 </div>
 </div>
@@ -399,19 +446,19 @@ nav button:hover,nav button.active{background:var(--pk);color:var(--cr);}
 <div id="bot" class="page">
 <div class="wrap-wide">
   <div class="sec-title">Luna AI Guide</div>
-  <div class="sec-sub">Luna reads your journal data, asks follow-up questions, and checks in on yesterday's entry.</div>
+  <div class="sec-sub">Luna knows your journal, cognitive patterns, and predictions. Chat about anything.</div>
   <div class="chat-layout">
     <div class="chat-sidebar">
       <div class="sidebar-hdr"><h4>Conversations</h4><button class="new-btn" onclick="startNewChat()" title="New">+</button></div>
       <div class="sess-list" id="sess-list"></div>
-      <div class="ins-panel"><h4>Luna's Insights</h4><div id="ins-list"><p style="font-size:0.72rem;color:var(--muted)">Chat with Luna to unlock insights.</p></div></div>
+      <div class="ins-panel"><h4>Insights</h4><p style="font-size:0.72rem;color:var(--muted)">Chat to unlock insights.</p></div>
     </div>
     <div class="chat-main">
-      <div class="chat-hdr"><div class="chat-av">🌙</div><div><h3>Luna — Red Moon AI</h3><p>Built-in AI · Reads your data · No API key needed</p></div></div>
+      <div class="chat-hdr"><div class="chat-av">🌙</div><div><h3>Luna — Red Moon AI</h3><p>Built-in AI · Knows your cognitive patterns</p></div></div>
       <div class="chat-msgs" id="chat-msgs"></div>
       <div class="suggs" id="suggs"></div>
       <div class="chat-inp">
-        <input type="text" id="chat-in" placeholder="Ask Luna about your cycle, training, or recovery..." onkeydown="if(event.key==='Enter')sendChat()"/>
+        <input type="text" id="chat-in" placeholder="Ask Luna anything..." onkeydown="if(event.key==='Enter')sendChat()"/>
         <button class="send-btn" onclick="sendChat()" id="send-btn">&#10148;</button>
       </div>
     </div>
@@ -419,15 +466,16 @@ nav button:hover,nav button.active{background:var(--pk);color:var(--cr);}
 </div>
 </div>
 
-<!-- PREDICTIONS -->
+<!-- PREDICT -->
 <div id="predict" class="page">
 <div class="wrap">
-  <div class="sec-title">Cycle Predictions</div>
-  <div class="sec-sub">Powered by your journal data. Add your Anthropic API key as ANTHROPIC_API_KEY for enhanced Claude predictions.</div>
-  <div style="text-align:center;margin-bottom:1.5rem">
-    <button class="btn" onclick="runPrediction()" id="btn-predict">Generate Prediction</button>
-    <p style="font-size:0.75rem;color:var(--muted);margin-top:0.5rem">Requires last period start date saved in your Profile.</p>
+  <div class="sec-title">Predictions</div>
+  <div class="sec-sub">Java + C++ engine with environmental and stress adjustments. Auto-journal runs separately.</div>
+  <div style="display:flex;gap:0.8rem;flex-wrap:wrap;margin-bottom:1.5rem">
+    <button class="btn" onclick="runPrediction()" id="btn-predict">Run Prediction</button>
+    <button class="btn-outline" onclick="runAutoJournal()" id="btn-auto-j">Generate Auto-Journal (14 days)</button>
   </div>
+  <div id="auto-journal-result" style="margin-bottom:1rem"></div>
   <div id="pred-result"></div>
 </div>
 </div>
@@ -436,22 +484,17 @@ nav button:hover,nav button.active{background:var(--pk);color:var(--cr);}
 <div id="team" class="page">
 <div class="wrap">
   <div class="sec-title">Team</div>
-  <div class="sec-sub" id="team-sub">Coaches can create teams. Athletes and trainers can join with an invite code.</div>
-
+  <div class="sec-sub">Coaches create teams. Athletes and trainers join with a code.</div>
   <div id="team-coach-section" style="display:none">
-    <div class="card">
-      <h3>Create a Team</h3>
+    <div class="card"><h3>Create a Team</h3>
       <div class="fr"><label>Team Name</label><input type="text" id="team-name" placeholder="e.g. Springfield Track Club"/></div>
-      <button class="btn btn-coach btn-sm" onclick="createTeam()">Create Team</button>
+      <button class="btn btn-sm" onclick="createTeam()">Create Team</button>
     </div>
   </div>
-
-  <div class="card">
-    <h3>Join a Team</h3>
+  <div class="card"><h3>Join a Team</h3>
     <div class="fr"><label>Invite Code</label><input type="text" id="join-code" placeholder="e.g. A1B2C3D4" style="text-transform:uppercase"/></div>
     <button class="btn btn-sm" onclick="joinTeam()">Join</button>
   </div>
-
   <div id="my-teams"></div>
 </div>
 </div>
@@ -462,31 +505,38 @@ nav button:hover,nav button.active{background:var(--pk);color:var(--cr);}
   <div class="sec-title">Your Profile</div>
   <div class="sec-sub">Saved to your account. Loads automatically on sign-in.</div>
   <div class="prog"><div class="prog-fill" id="ob-prog" style="width:33%"></div></div>
-
   <div id="ob-1" class="card">
     <h3>🌸 About You</h3>
-    <div class="fr"><label>Your Name</label><input type="text" id="ob-name" placeholder="e.g. Alex Johnson"/></div>
+    <div class="fr"><label>Name</label><input type="text" id="ob-name" placeholder="e.g. Alex Johnson"/></div>
     <div class="fr"><label>Age</label><input type="number" id="ob-age" min="13" max="60" placeholder="e.g. 26"/></div>
     <div class="fr"><label>Cycle Status</label><div class="check-group" id="ob-cs"><label class="pill" onclick="selOne(this,'ob-cs')"><input type="radio"/>Regular</label><label class="pill" onclick="selOne(this,'ob-cs')"><input type="radio"/>On HBC</label><label class="pill" onclick="selOne(this,'ob-cs')"><input type="radio"/>Amenorrhea</label><label class="pill" onclick="selOne(this,'ob-cs')"><input type="radio"/>Irregular</label></div></div>
-    <div class="fr"><label>Average Cycle Length (days)</label><input type="number" id="ob-cycle-len" min="21" max="40" placeholder="e.g. 28" value="28"/></div>
+    <div class="fr"><label>Average Cycle Length (days)</label><input type="number" id="ob-cycle-len" min="21" max="40" placeholder="28" value="28"/></div>
     <div class="fr"><label>Last Period Start Date</label><input type="date" id="ob-last-period"/></div>
     <div class="step-nav"><span></span><button class="btn btn-sm" onclick="obNext(2)">Next</button></div>
   </div>
-
   <div id="ob-2" class="card" style="display:none">
     <h3>🎯 Goals and Sport</h3>
-    <div class="fr"><label>Goals (select all that apply)</label><div class="check-group" id="ob-goals"><label class="pill" onclick="togPill(this)"><input type="checkbox"/>Injury Prevention</label><label class="pill" onclick="togPill(this)"><input type="checkbox"/>Performance Maximization</label><label class="pill" onclick="togPill(this)"><input type="checkbox"/>Anxiety Control</label><label class="pill" onclick="togPill(this)"><input type="checkbox"/>Optimize Recovery</label><label class="pill" onclick="togPill(this)"><input type="checkbox"/>Hormonal Balance</label></div></div>
-    <div class="fr"><label>Sport / Activity</label><input type="text" id="ob-sport" placeholder="e.g. Running, CrossFit, Soccer"/></div>
+    <div class="fr"><label>Goals</label><div class="check-group" id="ob-goals"><label class="pill" onclick="togPill(this)"><input type="checkbox"/>Injury Prevention</label><label class="pill" onclick="togPill(this)"><input type="checkbox"/>Performance Maximization</label><label class="pill" onclick="togPill(this)"><input type="checkbox"/>Anxiety Control</label><label class="pill" onclick="togPill(this)"><input type="checkbox"/>Optimize Recovery</label><label class="pill" onclick="togPill(this)"><input type="checkbox"/>Hormonal Balance</label></div></div>
+    <div class="fr"><label>Sport</label><input type="text" id="ob-sport" placeholder="e.g. Running, CrossFit, Soccer"/></div>
     <div class="fr"><label>Training Load</label><div class="check-group" id="ob-load"><label class="pill" onclick="selOne(this,'ob-load')"><input type="radio"/>Light (1-3x/wk)</label><label class="pill" onclick="selOne(this,'ob-load')"><input type="radio"/>Moderate (4-5x/wk)</label><label class="pill" onclick="selOne(this,'ob-load')"><input type="radio"/>Heavy (6-7x/wk)</label></div></div>
     <div class="fr"><label>ACL or soft-tissue injury history?</label><div class="check-group" id="ob-acl"><label class="pill" onclick="selOne(this,'ob-acl')"><input type="radio"/>No</label><label class="pill" onclick="selOne(this,'ob-acl')"><input type="radio"/>Yes</label></div></div>
     <div class="step-nav"><button class="btn-outline" onclick="obNext(1)">Back</button><button class="btn btn-sm" onclick="obNext(3)">Next</button></div>
   </div>
-
   <div id="ob-3" class="card" style="display:none">
-    <h3>📅 Upcoming Events</h3>
-    <div class="fr"><label>Competition / Event Date (optional)</label><input type="date" id="ob-event"/></div>
-    <div class="fr"><label>Desired Phase for Event</label><select id="ob-desired-phase"><option value="">Select</option><option>Follicular (peak strength and energy)</option><option>Ovulatory (peak performance window)</option><option>Luteal (steady endurance)</option><option>Menstrual (rest and recovery focus)</option></select></div>
-    <div class="fr"><label>Cycles of data logged</label><select id="ob-cycles"><option value="">Select</option><option>None yet</option><option>1 cycle</option><option>2 cycles</option><option>3+ cycles</option></select></div>
+    <h3>📅 Events and Auto-Journal</h3>
+    <div class="fr"><label>Upcoming Event Date (optional)</label><input type="date" id="ob-event"/></div>
+    <div class="fr"><label>Desired Phase for Event</label>
+      <select id="ob-desired-phase"><option value="">Select</option><option>Follicular (peak strength)</option><option>Ovulatory (peak performance)</option><option>Luteal (steady endurance)</option><option>Menstrual (rest focus)</option></select>
+    </div>
+    <div class="fr"><label>Cycles logged</label><select id="ob-cycles"><option value="">Select</option><option>None yet</option><option>1 cycle</option><option>2 cycles</option><option>3+ cycles</option></select></div>
+    <div class="fr" style="background:rgba(139,92,246,0.06);border:1px solid rgba(139,92,246,0.2);border-radius:10px;padding:1rem">
+      <label style="color:#5b21b6">Auto-Journal Mode</label>
+      <div class="check-group" id="ob-auto-j" style="margin-top:0.4rem">
+        <label class="pill" onclick="selOne(this,'ob-auto-j')"><input type="radio"/>Enabled (Luna predicts, I log changes)</label>
+        <label class="pill" onclick="selOne(this,'ob-auto-j')"><input type="radio"/>Disabled (I log everything manually)</label>
+      </div>
+      <p style="font-size:0.75rem;color:var(--muted);margin-top:0.5rem">Requires 28+ logged entries to activate.</p>
+    </div>
     <div class="step-nav"><button class="btn-outline" onclick="obNext(2)">Back</button><button class="btn btn-sm" onclick="saveProfile()" id="btn-save-profile">Save Profile</button></div>
   </div>
 </div>
@@ -498,12 +548,12 @@ nav button:hover,nav button.active{background:var(--pk);color:var(--cr);}
 <div class="event-modal" id="event-modal">
 <div class="event-modal-box">
   <h3 id="modal-title">Add Event</h3>
-  <div class="fr"><label>Title</label><input type="text" id="ev-title" placeholder="e.g. Strength session, Race day"/></div>
+  <div class="fr"><label>Title</label><input type="text" id="ev-title" placeholder="e.g. Race day, Strength session"/></div>
   <div class="fr"><label>Date</label><input type="date" id="ev-date"/></div>
-  <div class="fr"><label>Type</label><select id="ev-type"><option value="general">General</option><option value="training">Training</option><option value="rest">Rest Day</option><option value="nutrition">Nutrition Focus</option><option value="warning">Warning / Flag</option><option value="prediction">Prediction</option><option value="competition">Competition</option></select></div>
+  <div class="fr"><label>Type</label><select id="ev-type"><option value="general">General</option><option value="training">Training</option><option value="rest">Rest Day</option><option value="nutrition">Nutrition Focus</option><option value="warning">Warning</option><option value="competition">Competition</option></select></div>
   <div class="fr"><label>Description (optional)</label><textarea id="ev-desc" placeholder="Details..."></textarea></div>
   <input type="hidden" id="ev-id"/>
-  <div style="display:flex;gap:0.7rem;margin-top:1rem">
+  <div style="display:flex;gap:0.7rem;margin-top:1rem;flex-wrap:wrap">
     <button class="btn btn-sm" onclick="saveEvent()">Save</button>
     <button class="btn-outline btn-sm" onclick="closeModal()">Cancel</button>
     <button class="btn btn-sm" id="ev-delete-btn" onclick="deleteEvent()" style="display:none;background:linear-gradient(135deg,#c0392b,#a93226)">Delete</button>
@@ -514,8 +564,9 @@ nav button:hover,nav button.active{background:var(--pk);color:var(--cr);}
 <div id="toast"></div>
 
 <script>
-var G={userId:null,username:null,role:null,calYear:null,calMonth:null,calEvents:[],currentSessId:null,chatReady:false,selectedRole:'athlete'};
-var SUGG_BANK=['What phase am I in today?','How should I train this week?','Why do I feel so tired?','What should I eat right now?','How can I reduce injury risk?','Help me prepare for my event','Why is my motivation so low?','How does heat affect my cycle?','I have a new injury to report','Did anything change from yesterday?','What do my recent patterns show?','Predict my next period'];
+var G={userId:null,username:null,role:null,calYear:null,calMonth:null,calEvents:[],currentSessId:null,chatReady:false,selectedRole:'athlete',todayPredicted:false};
+
+var SUGG_BANK=['What phase am I in today?','How should I train this week?','How does my competitive drive change across my cycle?','What does my working memory look like this week?','Why do I feel so self-critical right now?','Help me prepare mentally for my event','How does my risk tolerance change before my period?','What cognitive strategies work best in late luteal?','Tell me about verbal fluency and my cycle','What should I focus on cognitively in follicular phase?'];
 
 // UTILS
 var $=function(id){return document.getElementById(id);};
@@ -525,7 +576,12 @@ function togPill(el){el.classList.toggle('sel');}
 function updScale(inp,vid){$(vid).textContent=inp.value;var p=((inp.value-inp.min)/(inp.max-inp.min))*100;inp.style.setProperty('--val',p+'%');}
 function setBtn(id,loading,text){var b=$(id);b.disabled=loading;b.innerHTML=loading?'<span class="spinner"></span>':text;}
 function txt(sel){var el=document.querySelector(sel+' .pill.sel');return el?el.textContent.trim():'';}
-function showPage(id,btn){document.querySelectorAll('.page').forEach(function(p){p.classList.remove('active');});$(id).classList.add('active');document.querySelectorAll('#app-nav button').forEach(function(b){b.classList.remove('active');});if(btn)btn.classList.add('active');if(id==='calendar')loadCalendar();if(id==='team')loadTeams();if(id==='predict'){}if(id==='bot')initChat();window.scrollTo({top:0,behavior:'smooth'});}
+function showPage(id,btn){document.querySelectorAll('.page').forEach(function(p){p.classList.remove('active');});$(id).classList.add('active');document.querySelectorAll('#app-nav button').forEach(function(b){b.classList.remove('active');});if(btn)btn.classList.add('active');if(id==='calendar')loadCalendar();if(id==='team')loadTeams();if(id==='bot')initChat();if(id==='cognitive')loadCognitive();if(id==='journal')loadJournalStatus();window.scrollTo({top:0,behavior:'smooth'});}
+function showCogTab(id,btn){document.querySelectorAll('.cog-panel').forEach(function(p){p.classList.remove('active');});document.querySelectorAll('.cog-tab').forEach(function(b){b.classList.remove('active');});$('cog-'+id).classList.add('active');btn.classList.add('active');if(id==='phases')loadCogPhases();if(id==='my-baselines')loadCogBaselines();if(id==='coaching')loadCogCoaching();}
+
+// COG BAR COLOR
+function cogColor(val){if(val>=8)return '#27AE60';if(val>=6)return '#F39C12';if(val>=4)return '#E67E22';return '#E74C3C';}
+function cogColorInverse(val){return cogColor(11-val);}
 
 // AUTH
 function switchAuth(tab){document.querySelectorAll('.auth-tab').forEach(function(t){t.classList.remove('active');});document.querySelectorAll('.auth-form').forEach(function(f){f.classList.remove('active');});document.querySelector('.auth-tab[onclick="switchAuth(\''+tab+'\')"]').classList.add('active');$('auth-'+tab).classList.add('active');}
@@ -534,128 +590,243 @@ function clrErr(id){$(id).style.display='none';}
 function selectRole(el){document.querySelectorAll('.role-opt').forEach(function(r){r.classList.remove('active');});el.classList.add('active');G.selectedRole=el.dataset.role;}
 
 function doLogin(){clrErr('login-err');var u=$('li-user').value.trim(),p=$('li-pass').value;if(!u||!p)return showErr('login-err','Please fill in both fields.');setBtn('btn-login',true);fetch('/api/login',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({username:u,password:p})}).then(function(r){return r.json();}).then(function(d){setBtn('btn-login',false,'Sign In');if(d.success)launchApp(d.username,d.role);else showErr('login-err',d.error);});}
-
 function doRegister(){clrErr('reg-err');var u=$('reg-user').value.trim(),e=$('reg-email').value.trim(),p=$('reg-pass').value;if(!u||!e||!p)return showErr('reg-err','All fields required.');setBtn('btn-register',true);fetch('/api/register',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({username:u,email:e,password:p,role:G.selectedRole})}).then(function(r){return r.json();}).then(function(d){setBtn('btn-register',false,'Create Account');if(d.success)launchApp(d.username,d.role);else showErr('reg-err',d.error);});}
-
 function doLogout(){fetch('/api/logout',{method:'POST'}).then(function(){location.reload();});}
 
-function launchApp(username,role){$('auth-screen').style.display='none';G.username=username;G.role=role;$('hdr-name').textContent=username;var rb=$('role-badge');rb.textContent=role;rb.className='role-badge role-'+role;var now=new Date();G.calYear=now.getFullYear();G.calMonth=now.getMonth();$('j-date').value=now.toISOString().split('T')[0];['j-sq','j-rpe','j-mot','j-stress'].forEach(function(id){var el=$(id);if(el){var vid=id==='j-sq'?'j-sq-v':id==='j-rpe'?'j-rpe-v':id==='j-mot'?'j-mot-v':'j-str-v';updScale(el,vid);}});if(role==='coach'){$('team-coach-section').style.display='block';var np=$('nav-predict');if(np)np.style.display='none';}if(role==='trainer'){var np=$('nav-predict');if(np)np.style.display='none';var nj=$('nav-journal');if(nj)nj.style.display='none';}loadProfile();}
+function launchApp(username,role){$('auth-screen').style.display='none';G.username=username;G.role=role;$('hdr-name').textContent=username;var rb=$('role-badge');rb.textContent=role;rb.className='role-badge role-'+role;var now=new Date();G.calYear=now.getFullYear();G.calMonth=now.getMonth();$('j-date').value=now.toISOString().split('T')[0];['j-sq','j-rpe','j-mot','j-stress','j-cd','j-sc','j-rt','j-wm'].forEach(function(id){var el=$(id);if(el){var defaults={j-sq:'j-sq-v','j-rpe':'j-rpe-v','j-mot':'j-mot-v','j-stress':'j-str-v','j-cd':'j-cd-v','j-sc':'j-sc-v','j-rt':'j-rt-v','j-wm':'j-wm-v'};var vid=defaults[id]||id+'-v';updScale(el,vid);}});if(role==='coach'){$('team-coach-section').style.display='block';var np=$('nav-predict');if(np)np.style.display='none';}if(role==='trainer'){var np=$('nav-predict');if(np)np.style.display='none';var nj=$('nav-journal');if(nj)nj.style.display='none';}loadProfile();loadJournalStatus();}
 
 window.addEventListener('load',function(){fetch('/api/me').then(function(r){return r.json();}).then(function(d){if(d.loggedIn)launchApp(d.username,d.role);});});
 $('li-pass').addEventListener('keydown',function(e){if(e.key==='Enter')doLogin();});
 $('reg-pass').addEventListener('keydown',function(e){if(e.key==='Enter')doRegister();});
 
-// PROFILE
-function obNext(s){[1,2,3].forEach(function(n){var el=$('ob-'+n);if(el)el.style.display='none';});$('ob-'+s).style.display='block';$('ob-prog').style.width={1:'33%',2:'66%',3:'100%'}[s];}
+// JOURNAL STATUS
+function loadJournalStatus(){
+  fetch('/api/auto-journal/status').then(function(r){return r.json();}).then(function(d){
+    if(!d.success)return;
+    var banner=$('auto-journal-banner');
+    if(d.ready&&d.enabled){
+      banner.style.display='flex';
+      banner.className='auto-banner';
+      banner.innerHTML='<span class="ai-icon">🤖</span><div style="flex:1"><h4>Auto-Journal Active</h4><p>Luna is predicting your daily data. You only need to log changes from the prediction.</p></div>';
+    } else if(!d.ready){
+      banner.style.display='flex';
+      banner.className='auto-banner';
+      var pct=d.progress_pct;
+      banner.innerHTML='<span class="ai-icon">📊</span><div style="flex:1"><h4>Building your baseline — '+d.entries_logged+' / 28 entries</h4><p>Luna needs '+d.entries_needed+' more entries to start predicting your days automatically.</p><div class="progress-track"><div class="progress-track-fill" style="width:'+pct+'%"></div></div></div>';
+    }
+    // Check if today has a prediction
+    fetch('/api/journal/today').then(function(r){return r.json();}).then(function(td){
+      var pb=$('predicted-banner');
+      var cb=$('btn-confirm-pred');
+      if(td.entry&&td.entry.is_predicted&&!td.entry.is_confirmed){
+        G.todayPredicted=true;
+        cb.style.display='inline-flex';
+        pb.style.display='flex';
+        pb.className='predicted-entry-banner';
+        pb.innerHTML='<span>🤖 Luna has predicted today\'s entry. Review below and save changes, or confirm if everything looks right.</span>';
+        loadPredictedValues(td.entry);
+      } else {
+        G.todayPredicted=false;
+        cb.style.display='none';
+        pb.style.display='none';
+      }
+    });
+  });
+}
 
-function loadProfile(){fetch('/api/profile').then(function(r){return r.json();}).then(function(d){if(!d.profile)return;var p=d.profile;if(p.name)$('ob-name').value=p.name;if(p.age)$('ob-age').value=p.age;if(p.sport)$('ob-sport').value=p.sport;if(p.event_date)$('ob-event').value=p.event_date;if(p.desired_phase)$('ob-desired-phase').value=p.desired_phase;if(p.cycles_data)$('ob-cycles').value=p.cycles_data;if(p.avg_cycle_length)$('ob-cycle-len').value=p.avg_cycle_length;if(p.last_period_start)$('ob-last-period').value=p.last_period_start;if(p.cycle_status)document.querySelectorAll('#ob-cs .pill').forEach(function(pl){if(pl.textContent.trim()===p.cycle_status)pl.classList.add('sel');});if(p.training_load)document.querySelectorAll('#ob-load .pill').forEach(function(pl){if(pl.textContent.trim()===p.training_load)pl.classList.add('sel');});if(p.acl_history)document.querySelectorAll('#ob-acl .pill').forEach(function(pl){if(pl.textContent.trim()===p.acl_history)pl.classList.add('sel');});try{var goals=JSON.parse(p.goals||'[]');document.querySelectorAll('#ob-goals .pill').forEach(function(pl){if(goals.indexOf(pl.textContent.trim())!==-1)pl.classList.add('sel');});}catch(e){}});}
+function loadPredictedValues(entry){
+  if(entry.sleep_quality)updSlider('j-sq','j-sq-v',entry.sleep_quality);
+  if(entry.rpe)updSlider('j-rpe','j-rpe-v',entry.rpe);
+  if(entry.motivation)updSlider('j-mot','j-mot-v',entry.motivation);
+  if(entry.stress_level)updSlider('j-stress','j-str-v',entry.stress_level);
+  if(entry.competitive_drive)updSlider('j-cd','j-cd-v',entry.competitive_drive);
+  if(entry.self_criticism)updSlider('j-sc','j-sc-v',entry.self_criticism);
+  if(entry.risk_tolerance)updSlider('j-rt','j-rt-v',entry.risk_tolerance);
+  if(entry.working_memory)updSlider('j-wm','j-wm-v',entry.working_memory);
+  if(entry.cycle_day)$('j-cycle-day').value=entry.cycle_day;
+  if(entry.energy){document.querySelectorAll('#j-energy .pill').forEach(function(p){if(p.textContent.trim().toLowerCase()===entry.energy.toLowerCase())p.classList.add('sel');});}
+  if(entry.mood){document.querySelectorAll('#j-mood .pill').forEach(function(p){if(p.textContent.trim()===entry.mood)p.classList.add('sel');});}
+}
 
-function saveProfile(){setBtn('btn-save-profile',true);var goals=Array.from(document.querySelectorAll('#ob-goals .pill.sel')).map(function(p){return p.textContent.trim();});var body={name:$('ob-name').value,age:$('ob-age').value,cycle_status:txt('#ob-cs'),goals:goals,sport:$('ob-sport').value,event_date:$('ob-event').value,desired_phase:$('ob-desired-phase').value,cycles_data:$('ob-cycles').value,training_load:txt('#ob-load'),acl_history:txt('#ob-acl'),avg_cycle_length:$('ob-cycle-len').value||28,last_period_start:$('ob-last-period').value};fetch('/api/profile',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)}).then(function(r){return r.json();}).then(function(d){setBtn('btn-save-profile',false,'Save Profile');if(d.success){toast('Profile saved!');$('ob-3').innerHTML='<div class="success-box"><span class="big-icon">🌕</span><h2>Profile Saved!</h2><p>Your data powers Luna\'s predictions.</p><br/><button class="btn btn-sm" onclick="showPage(\'journal\',document.querySelector(\'#app-nav button:nth-child(2)\'))">Start Journaling</button></div>';}});}
+function updSlider(id,vid,val){var el=$(id);if(el){el.value=val;updScale(el,vid);}}
 
-// JOURNAL
-function saveJournal(){setBtn('btn-save-j',true);var recovery=Array.from(document.querySelectorAll('#j-recovery .pill.sel')).map(function(p){return p.textContent.trim();});var body={entry_date:$('j-date').value,cycle_day:$('j-cycle-day').value||null,phase:txt('#j-phase'),hrv:$('j-hrv').value,sleep_quality:$('j-sq').value,sleep_hours:$('j-sh').value||null,energy:txt('#j-energy'),soreness:txt('#j-soreness'),pain_notes:$('j-pain').value,workout:$('j-workout').value,rpe:$('j-rpe').value,motivation:$('j-mot').value,perf_notes:$('j-notes').value,flow:txt('#j-flow'),cramps:txt('#j-cramps'),mucus:txt('#j-mucus'),digestion:$('j-dig').value,symptom_time:txt('#j-sym-time'),mood:txt('#j-mood'),cognitive:txt('#j-cog'),social:txt('#j-social'),cravings:$('j-cravings').value,hydration:txt('#j-hydration'),recovery_steps:recovery,environmental_temp:txt('#j-temp'),environmental_humidity:txt('#j-humid'),environmental_notes:$('j-env-notes').value,injuries:$('j-injuries').value,stress_level:$('j-stress').value};if(!body.entry_date){toast('Please set a date.');setBtn('btn-save-j',false,'Save Entry');return;}fetch('/api/journal',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)}).then(function(r){return r.json();}).then(function(d){setBtn('btn-save-j',false,'Save Entry');toast(d.success?'Entry saved for '+body.entry_date:'Could not save. Try again.');});}
+function confirmPrediction(){fetch('/api/journal/confirm/'+$('j-date').value,{method:'POST'}).then(function(r){return r.json();}).then(function(d){if(d.success){toast('Prediction confirmed for today.');$('predicted-banner').style.display='none';$('btn-confirm-pred').style.display='none';}});}
+
+// SAVE JOURNAL
+function saveJournal(){setBtn('btn-save-j',true);
+var recovery=Array.from(document.querySelectorAll('#j-recovery .pill.sel')).map(function(p){return p.textContent.trim();});
+var body={entry_date:$('j-date').value,cycle_day:$('j-cycle-day').value||null,phase:txt('#j-phase'),hrv:$('j-hrv').value,sleep_quality:$('j-sq').value,sleep_hours:$('j-sh').value||null,energy:txt('#j-energy'),soreness:txt('#j-soreness'),pain_notes:$('j-pain').value,workout:$('j-workout').value,rpe:$('j-rpe').value,motivation:$('j-mot').value,perf_notes:$('j-notes').value,flow:txt('#j-flow'),cramps:txt('#j-cramps'),mucus:txt('#j-mucus'),digestion:$('j-dig').value,mood:txt('#j-mood'),cognitive:txt('#j-cog'),cravings:$('j-cravings').value,hydration:txt('#j-hydration'),recovery_steps:recovery,environmental_temp:txt('#j-temp'),environmental_humidity:txt('#j-humid'),environmental_notes:$('j-env-notes').value,injuries:$('j-injuries').value,stress_level:$('j-stress').value,competitive_drive:$('j-cd').value,self_criticism:$('j-sc').value,risk_tolerance:$('j-rt').value,working_memory:$('j-wm').value,cognitive_notes:$('j-cog-notes').value};
+if(!body.entry_date){toast('Please set a date.');setBtn('btn-save-j',false,'Save Entry');return;}
+fetch('/api/journal',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)}).then(function(r){return r.json();}).then(function(d){setBtn('btn-save-j',false,'Save Entry');toast(d.success?'Entry saved!':'Could not save. Try again.');if(d.success)loadJournalStatus();});}
 
 // CALENDAR
-var calEventsData=[];
-
-function loadCalendar(){var m=(G.calYear)+'-'+(String(G.calMonth+1).padStart(2,'0'));fetch('/api/calendar?month='+m).then(function(r){return r.json();}).then(function(d){calEventsData=d.events||[];renderCalendar();});}
-
+function loadCalendar(){var m=G.calYear+'-'+(String(G.calMonth+1).padStart(2,'0'));fetch('/api/calendar?month='+m).then(function(r){return r.json();}).then(function(d){G.calEvents=d.events||[];renderCalendar();});}
 function changeMonth(dir){G.calMonth+=dir;if(G.calMonth>11){G.calMonth=0;G.calYear++;}if(G.calMonth<0){G.calMonth=11;G.calYear--;}loadCalendar();}
 
 function renderCalendar(){
   var months=['January','February','March','April','May','June','July','August','September','October','November','December'];
   $('cal-month-label').textContent=months[G.calMonth]+' '+G.calYear;
-
   var firstDay=new Date(G.calYear,G.calMonth,1).getDay();
   var daysInMonth=new Date(G.calYear,G.calMonth+1,0).getDate();
   var todayStr=new Date().toISOString().split('T')[0];
-
-  // Remove all existing day cells (keep the 7 day-label headers)
   var grid=$('cal-grid');
-  var cells=grid.querySelectorAll('.cal-day');
-  cells.forEach(function(c){c.remove();});
-
-  // Build the day cells HTML string
+  grid.querySelectorAll('.cal-day').forEach(function(c){c.remove();});
   var html='';
-
-  // Leading blank cells before the 1st
-  for(var i=0;i<firstDay;i++){
-    html+='<div class="cal-day other-month"></div>';
-  }
-
-  // Actual days
+  for(var i=0;i<firstDay;i++){html+='<div class="cal-day other-month"></div>';}
   for(var d=1;d<=daysInMonth;d++){
-    var dateStr=G.calYear+'-'+String(G.calMonth+1).padStart(2,'0')+'-'+String(d).padStart(2,'0');
-    var isToday=dateStr===todayStr;
-    var dayEvents=calEventsData.filter(function(e){return e.event_date===dateStr;});
-    var evHtml=dayEvents.slice(0,3).map(function(e){
-      var cls=e.is_ai_generated?'ai-event':(e.creator_role==='coach'?'coach-event':(e.creator_role==='trainer'?'trainer-event':'athlete-event'));
+    var ds=G.calYear+'-'+String(G.calMonth+1).padStart(2,'0')+'-'+String(d).padStart(2,'0');
+    var isToday=ds===todayStr;
+    var dayEvents=G.calEvents.filter(function(e){return e.event_date===ds;});
+    var hasPredicted=dayEvents.some(function(e){return e.is_auto_journal;});
+    var evHtml=dayEvents.slice(0,4).map(function(e){
+      var cls=e.is_auto_journal?'auto-journal-event':(e.is_ai_generated?'ai-event':(e.creator_role==='coach'?'coach-event':(e.creator_role==='trainer'?'trainer-event':'athlete-event')));
       return '<div class="cal-event '+cls+'" onclick="openEditEvent(event,'+JSON.stringify(e).replace(/"/g,'&quot;')+')" title="'+e.title+'">'+e.title+'</div>';
     }).join('');
-    html+='<div class="cal-day'+(isToday?' today':'')+'" onclick="openAddEventDate(\''+dateStr+'\')"><div class="cal-day-num">'+d+'</div>'+evHtml+'</div>';
+    html+='<div class="cal-day'+(isToday?' today':'')+(hasPredicted?' predicted-day':'')+'" onclick="openAddEventDate(\''+ds+'\')"><div class="cal-day-num">'+d+'</div>'+evHtml+'</div>';
   }
-
-  // Trailing blank cells to complete the last row
-  var totalCells=firstDay+daysInMonth;
-  var remainder=totalCells%7;
-  if(remainder!==0){
-    for(var i=0;i<7-remainder;i++){
-      html+='<div class="cal-day other-month"></div>';
-    }
-  }
-
-  // Inject directly into the grid (after the 7 header labels)
-  grid.insertAdjacentHTML('beforeend', html);
+  var total=firstDay+daysInMonth;var rem=total%7;
+  if(rem!==0){for(var i=0;i<7-rem;i++){html+='<div class="cal-day other-month"></div>';}}
+  grid.insertAdjacentHTML('beforeend',html);
 }
 
 function openAddEvent(){$('modal-title').textContent='Add Event';$('ev-title').value='';$('ev-date').value=new Date().toISOString().split('T')[0];$('ev-type').value='general';$('ev-desc').value='';$('ev-id').value='';$('ev-delete-btn').style.display='none';$('event-modal').classList.add('open');}
 function openAddEventDate(date){openAddEvent();$('ev-date').value=date;}
 function openEditEvent(ev,evData){ev.stopPropagation();$('modal-title').textContent='Edit Event';$('ev-title').value=evData.title||'';$('ev-date').value=evData.event_date||'';$('ev-type').value=evData.event_type||'general';$('ev-desc').value=evData.description||'';$('ev-id').value=evData.id;$('ev-delete-btn').style.display='inline-flex';$('event-modal').classList.add('open');}
 function closeModal(){$('event-modal').classList.remove('open');}
+function saveEvent(){var eid=$('ev-id').value;var body={title:$('ev-title').value,event_date:$('ev-date').value,event_type:$('ev-type').value,description:$('ev-desc').value};if(!body.title||!body.event_date){toast('Title and date required.');return;}var url=eid?'/api/calendar/'+eid:'/api/calendar';var method=eid?'PUT':'POST';fetch(url,{method:method,headers:{'Content-Type':'application/json'},body:JSON.stringify(body)}).then(function(r){return r.json();}).then(function(d){if(d.success){closeModal();toast(eid?'Event updated':'Event added');loadCalendar();}else{toast(d.error||'Error');}});}
+function deleteEvent(){var eid=$('ev-id').value;if(!eid||!confirm('Delete?'))return;fetch('/api/calendar/'+eid,{method:'DELETE'}).then(function(r){return r.json();}).then(function(d){if(d.success){closeModal();toast('Deleted.');loadCalendar();}});}
+$('event-modal').addEventListener('click',function(e){if(e.target===this)closeModal();});
 
-function saveEvent(){var eid=$('ev-id').value;var body={title:$('ev-title').value,event_date:$('ev-date').value,event_type:$('ev-type').value,description:$('ev-desc').value};if(!body.title||!body.event_date){toast('Title and date required.');return;}var url=eid?'/api/calendar/'+eid:'/api/calendar';var method=eid?'PUT':'POST';fetch(url,{method:method,headers:{'Content-Type':'application/json'},body:JSON.stringify(body)}).then(function(r){return r.json();}).then(function(d){if(d.success){closeModal();toast(eid?'Event updated':'Event added');loadCalendar();}else{toast(d.error||'Error saving event.');}});}
+// COGNITIVE
+function loadCognitive(){
+  fetch('/api/cognitive/prediction').then(function(r){return r.json();}).then(function(d){
+    if(!d.success)return;
+    var c=$('cog-today-content');
+    var cv=d.cognitive_values;
+    var prof=d.phase_profile;
+    var phaseColors={'menstrual':'var(--phase-m)','follicular':'var(--phase-f)','ovulatory':'var(--phase-o)','luteal_early':'var(--phase-le)','luteal_late':'var(--phase-ll)'};
+    var pc=phaseColors[d.phase]||'var(--cr)';
+    var dims=[
+      {key:'competitive_drive',label:'Competitive Drive',inverse:false},
+      {key:'working_memory',label:'Working Memory',inverse:false},
+      {key:'risk_tolerance',label:'Risk Tolerance',inverse:false},
+      {key:'social_confidence',label:'Social Confidence',inverse:false},
+      {key:'analytical_focus',label:'Analytical Focus',inverse:false},
+      {key:'verbal_fluency',label:'Verbal Fluency',inverse:false},
+      {key:'creative_thinking',label:'Creative Thinking',inverse:false},
+      {key:'spatial_reasoning',label:'Spatial Reasoning',inverse:false},
+      {key:'emotional_reactivity',label:'Emotional Reactivity',inverse:true},
+      {key:'self_criticism',label:'Self-Criticism',inverse:true},
+    ];
+    var overall=0;var perfDims=['competitive_drive','working_memory','risk_tolerance','analytical_focus','verbal_fluency'];
+    perfDims.forEach(function(k){overall+=cv[k]||5;});overall=Math.round(overall/perfDims.length*10)/10;
+    var sourceNote=cv.source==='personal_baseline'?'Based on your '+cv.sample_count+' logged entries':'Based on research defaults (log more data for personalisation)';
+    var html='<div class="card"><div class="cog-score-ring"><div><div class="score-ring-num">'+overall+'</div><div class="score-ring-label">/ 10 performance score</div></div><div style="flex:1"><div style="font-family:Cormorant Garamond,serif;font-size:1.2rem;color:'+pc+'">'+( prof&&prof.label||d.phase.replace('_',' '))+'</div><div style="font-size:0.78rem;color:var(--muted);margin-top:0.2rem">Cycle Day '+d.cycle_day+' &bull; '+sourceNote+'</div></div></div>';
+    html+='<div class="cog-radar">';
+    dims.forEach(function(dim){
+      var val=cv[dim.key]||5;var pct=(val/10)*100;var color=dim.inverse?cogColorInverse(val):cogColor(val);
+      html+='<div class="cog-dim"><div class="cog-dim-label">'+dim.label+'</div><div class="cog-dim-bar"><div class="cog-dim-fill" style="width:'+pct+'%;background:'+color+'"></div></div><div class="cog-dim-val">'+val+'/10</div></div>';
+    });
+    html+='</div></div>';
+    if(d.performance_impact){html+='<div class="card"><h3>Performance Impact Today</h3><div class="impact-box">'+d.performance_impact+'</div></div>';}
+    if(prof){
+      if(prof.athletic_cognitive_impact){html+='<div class="card"><h3>Athletic Cognitive Profile</h3><p style="font-size:0.84rem;color:var(--dark);line-height:1.7">'+prof.primary_hormones+'</p><div class="impact-box" style="margin-top:0.8rem">'+prof.athletic_cognitive_impact+'</div></div>';}
+      if(prof.coaching_note){html+='<div class="coaching-box" style="margin:0 0 1rem 0"><strong>Coaching Note:</strong> '+prof.coaching_note+'</div>';}
+    }
+    c.innerHTML=html;
+  });
+}
 
-function deleteEvent(){var eid=$('ev-id').value;if(!eid||!confirm('Delete this event?'))return;fetch('/api/calendar/'+eid,{method:'DELETE'}).then(function(r){return r.json();}).then(function(d){if(d.success){closeModal();toast('Event deleted.');loadCalendar();}else{toast(d.error||'Cannot delete.');}});}
+function loadCogPhases(){
+  var phaseOrder=['menstrual','follicular','ovulatory','luteal_early','luteal_late'];
+  var phaseColors={'menstrual':'phase-m-bg','follicular':'phase-f-bg','ovulatory':'phase-o-bg','luteal_early':'phase-le-bg','luteal_late':'phase-ll-bg'};
+  var phaseTagColors={'menstrual':'#E74C3C','follicular':'#F39C12','ovulatory':'#27AE60','luteal_early':'#8E44AD','luteal_late':'#C0392B'};
+  fetch('/api/cognitive/profiles').then(function(r){return r.json();}).then(function(d){
+    var html='';
+    phaseOrder.forEach(function(phase){
+      var prof=d.profiles[phase];if(!prof)return;
+      var bgClass=phaseColors[phase]||'';var tagColor=phaseTagColors[phase]||'var(--cr)';
+      html+='<div class="phase-cog-card '+bgClass+'"><div class="phase-tag" style="background:'+tagColor+'20;color:'+tagColor+'">'+prof.label+'</div>';
+      html+='<p style="font-size:0.8rem;color:var(--muted);margin-bottom:0.8rem">'+prof.primary_hormones+'</p>';
+      var keyDims=[{k:'competitive_drive',l:'Competitive Drive'},{k:'working_memory',l:'Working Memory'},{k:'self_criticism',l:'Self-Criticism (lower=better)'},{k:'risk_tolerance',l:'Risk Tolerance'},{k:'social_confidence',l:'Social Confidence'}];
+      html+='<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:0.5rem;margin-bottom:0.8rem">';
+      keyDims.forEach(function(dim){
+        var v=prof[dim.k]&&prof[dim.k].baseline||5;var pct=(v/10)*100;var color=(dim.k==='self_criticism'||dim.k==='emotional_reactivity')?cogColorInverse(v):cogColor(v);
+        html+='<div class="cog-dim"><div class="cog-dim-label">'+dim.l+'</div><div class="cog-dim-bar"><div class="cog-dim-fill" style="width:'+pct+'%;background:'+color+'"></div></div><div class="cog-dim-val">'+v+'/10</div>';
+        if(prof[dim.k]&&prof[dim.k].trend)html+='<div class="cog-dim-trend">'+prof[dim.k].trend+'</div>';
+        html+='</div>';
+      });
+      html+='</div>';
+      html+='<div class="impact-box">'+prof.athletic_cognitive_impact+'</div>';
+      html+='</div>';
+    });
+    $('cog-phases-content').innerHTML=html;
+  });
+}
+
+function loadCogBaselines(){
+  fetch('/api/cognitive/baselines').then(function(r){return r.json();}).then(function(d){
+    var c=$('cog-baselines-content');
+    if(!d.baselines||!d.baselines.length){c.innerHTML='<div class="empty-state">Log cognitive data in your journal to build your personal baselines. The more you log, the more accurate these become.</div>';return;}
+    var dims=['verbal_fluency','spatial_reasoning','working_memory','emotional_reactivity','risk_tolerance','creative_thinking','analytical_focus','social_confidence','competitive_drive','self_criticism'];
+    var html='';
+    d.baselines.forEach(function(b){
+      html+='<div class="card"><h3>'+b.phase.replace('_',' ').replace(/\b\w/g,function(c){return c.toUpperCase();})+' Phase <span style="font-size:0.72rem;font-weight:400;color:var(--muted)">'+b.sample_count+' samples</span></h3><div class="cog-radar">';
+      dims.forEach(function(f){
+        var val=b[f]?Math.round(b[f]*10)/10:5;var pct=(val/10)*100;var inv=f==='emotional_reactivity'||f==='self_criticism';var color=inv?cogColorInverse(val):cogColor(val);
+        html+='<div class="cog-dim"><div class="cog-dim-label">'+f.replace(/_/g,' ').replace(/\b\w/g,function(c){return c.toUpperCase();})+'</div><div class="cog-dim-bar"><div class="cog-dim-fill" style="width:'+pct+'%;background:'+color+'"></div></div><div class="cog-dim-val">'+val+'</div></div>';
+      });
+      html+='</div></div>';
+    });
+    c.innerHTML=html;
+  });
+}
+
+function loadCogCoaching(){
+  fetch('/api/cognitive/profiles').then(function(r){return r.json();}).then(function(d){
+    var phaseOrder=['menstrual','follicular','ovulatory','luteal_early','luteal_late'];
+    var html='<div class="card"><h3>Coaching Across the Cycle</h3><p style="font-size:0.84rem;color:var(--muted);margin-bottom:1.2rem;line-height:1.6">How to coach and communicate effectively at each phase of the cycle. Share this with your coaching team.</p></div>';
+    phaseOrder.forEach(function(phase){
+      var prof=d.profiles[phase];if(!prof)return;
+      html+='<div class="card"><h3>'+prof.label+' Phase (Days '+prof.days+')</h3>';
+      html+='<p style="font-size:0.82rem;color:var(--muted);margin-bottom:0.7rem"><strong>Hormones:</strong> '+prof.primary_hormones+'</p>';
+      html+='<div class="impact-box" style="margin-bottom:0.6rem">'+prof.performance_summary+'</div>';
+      html+='<div class="coaching-box">'+prof.coaching_note+'</div></div>';
+    });
+    $('cog-coaching-content').innerHTML=html;
+  });
+}
+
+function refreshBaselines(){fetch('/api/cognitive/update-baselines',{method:'POST'}).then(function(r){return r.json();}).then(function(d){if(d.success){toast('Baselines updated!');loadCogBaselines();}else{toast('Error: '+d.error);}});}
 
 // CHAT
-var SUGG_BANK_COPY=SUGG_BANK.slice();
-
 function addMsg(text,type,scroll){var msgs=$('chat-msgs');var div=document.createElement('div');div.className='msg '+type;var fmt=text.replace(/\*\*(.*?)\*\*/g,'<strong>$1</strong>').replace(/\n\n/g,'<br><br>').replace(/\n/g,'<br>');div.innerHTML=type==='bot'?'<div class="bot-ic">🌙</div><div class="bubble">'+fmt+'</div>':'<div class="bubble">'+fmt+'</div>';msgs.appendChild(div);if(scroll!==false)msgs.scrollTop=msgs.scrollHeight;}
-
 function showTyping(){var msgs=$('chat-msgs');var d=document.createElement('div');d.className='msg bot';d.id='typing-ind';d.innerHTML='<div class="bot-ic">🌙</div><div class="bubble"><div class="typing"><span></span><span></span><span></span></div></div>';msgs.appendChild(d);msgs.scrollTop=msgs.scrollHeight;}
 function rmTyping(){var t=$('typing-ind');if(t)t.remove();}
-
 function showSuggs(){var s=$('suggs');var picks=SUGG_BANK.slice().sort(function(){return Math.random()-0.5;}).slice(0,3);s.innerHTML=picks.map(function(q){return '<button class="sug" onclick="useSug(this.textContent)">'+q+'</button>';}).join('');}
 function useSug(t){$('chat-in').value=t;sendChat();}
-
 function loadSessions(){fetch('/api/chat/sessions').then(function(r){return r.json();}).then(function(d){var list=$('sess-list');if(!d.sessions||!d.sessions.length){list.innerHTML='<p style="padding:0.7rem 1rem;font-size:0.75rem;color:var(--muted)">No past chats yet.</p>';return;}list.innerHTML=d.sessions.map(function(s){return '<div class="sess-item'+(s.id===G.currentSessId?' active':'')+'" onclick="loadSess('+s.id+')">'+'<div><div class="sess-name">'+s.session_name+'</div><div class="sess-date">'+new Date(s.created_at).toLocaleDateString()+'</div></div>'+'<button class="sess-del" onclick="event.stopPropagation();delSess('+s.id+')">x</button></div>';}).join('');});}
-
 function loadSess(id){fetch('/api/chat/session/'+id).then(function(r){return r.json();}).then(function(d){if(!d.success)return;G.currentSessId=id;$('chat-msgs').innerHTML='';d.messages.forEach(function(m){addMsg(m.content,m.role==='assistant'?'bot':'user',false);});loadSessions();showSuggs();});}
+function startNewChat(){fetch('/api/chat/new-session',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({name:'Chat - '+new Date().toLocaleDateString()})}).then(function(r){return r.json();}).then(function(d){if(d.success){G.currentSessId=d.sessionId;$('chat-msgs').innerHTML='';addMsg("Hi! Starting a fresh conversation. What would you like to explore?","bot");loadSessions();showSuggs();}});}
+function delSess(id){if(!confirm('Delete?'))return;fetch('/api/chat/session/'+id,{method:'DELETE'}).then(function(){if(id===G.currentSessId){G.chatReady=false;initChat();}else loadSessions();toast('Deleted.');});}
+function initChat(){if(G.chatReady)return;G.chatReady=true;fetch('/api/chat/history').then(function(r){return r.json();}).then(function(d){if(!d.success)return;G.currentSessId=d.sessionId;$('chat-msgs').innerHTML='';if(!d.messages.length){addMsg("Hi! I'm Luna 🌙 I know your journal, cognitive patterns, and cycle predictions. What's on your mind today?","bot");}else{d.messages.forEach(function(m){addMsg(m.content,m.role==='assistant'?'bot':'user',false);});}loadSessions();showSuggs();});}
+function sendChat(){var inp=$('chat-in');var msg=inp.value.trim();if(!msg)return;inp.value='';$('suggs').innerHTML='';addMsg(msg,'user');inp.disabled=true;$('send-btn').disabled=true;showTyping();fetch('/api/chat/send',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({message:msg,sessionId:G.currentSessId})}).then(function(r){return r.json();}).then(function(d){rmTyping();inp.disabled=false;$('send-btn').disabled=false;inp.focus();if(d.success){addMsg(d.reply,'bot');G.currentSessId=d.sessionId;showSuggs();loadSessions();}else{addMsg('I had trouble responding. Please try again.','bot');}}).catch(function(){rmTyping();inp.disabled=false;$('send-btn').disabled=false;addMsg('Connection error.','bot');});}
 
-function startNewChat(){fetch('/api/chat/new-session',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({name:'Chat - '+new Date().toLocaleDateString()})}).then(function(r){return r.json();}).then(function(d){if(d.success){G.currentSessId=d.sessionId;$('chat-msgs').innerHTML='';addMsg("Hi! I'm starting a fresh conversation. What would you like to talk about?","bot");loadSessions();showSuggs();}});}
+// PREDICTIONS + AUTO-JOURNAL
+function runPrediction(){setBtn('btn-predict',true);$('pred-result').innerHTML='<div class="empty-state">Running prediction engines...</div>';fetch('/api/predict',{method:'POST'}).then(function(r){return r.json();}).then(function(d){setBtn('btn-predict',false,'Run Prediction');if(!d.success){$('pred-result').innerHTML='<div class="card"><p style="color:var(--muted);font-size:0.85rem">'+(d.error||'Prediction failed. Make sure your last period start date is saved in Profile.')+'</p></div>';return;}var html='';if(d.java_prediction){var jp=d.java_prediction;var confColor={'high':'#27AE60','medium':'#F39C12','low':'#E74C3C'}[jp.next_period_confidence]||'#F39C12';html+='<div class="card"><h3>Cycle Prediction (Java Engine)</h3>';html+='<div style="display:flex;justify-content:space-between;padding:0.5rem 0;border-bottom:1px solid var(--bdr);font-size:0.84rem"><span style="color:var(--muted)">Next Period</span><span style="font-weight:600">'+(jp.next_period_predicted||'?')+'</span></div>';html+='<div style="display:flex;justify-content:space-between;padding:0.5rem 0;border-bottom:1px solid var(--bdr);font-size:0.84rem"><span style="color:var(--muted)">Confidence</span><span style="font-weight:600;color:'+confColor+'">'+jp.next_period_confidence+'</span></div>';html+='<div style="display:flex;justify-content:space-between;padding:0.5rem 0;border-bottom:1px solid var(--bdr);font-size:0.84rem"><span style="color:var(--muted)">Ovulation Est.</span><span style="font-weight:600">'+(jp.ovulation_estimated||'?')+'</span></div>';html+='<div style="display:flex;justify-content:space-between;padding:0.5rem 0;font-size:0.84rem"><span style="color:var(--muted)">Current Phase</span><span style="font-weight:600">'+(jp.current_phase||'?')+' day '+(jp.current_phase_day||'?')+'</span></div>';if(jp.period_shift_factors&&jp.period_shift_factors.length){html+='<div class="divider"></div><p style="font-size:0.78rem;font-weight:600;color:var(--muted);margin-bottom:0.4rem">SHIFT FACTORS</p>';jp.period_shift_factors.forEach(function(f){html+='<div style="background:#fff8e1;border-left:3px solid #f59e0b;padding:0.4rem 0.7rem;border-radius:0 6px 6px 0;font-size:0.78rem;color:#7a5c00;margin-bottom:0.3rem">'+f+'</div>';});}html+='</div>';}if(d.cpp_analysis){var cp=d.cpp_analysis;html+='<div class="card"><h3>Pattern Analysis (C++ Engine)</h3>';if(cp.patterns&&cp.patterns.length){html+='<p style="font-size:0.78rem;font-weight:600;color:var(--muted);margin-bottom:0.4rem">PATTERNS</p>';cp.patterns.forEach(function(p){html+='<div style="padding:0.4rem 0;border-bottom:1px solid var(--bdr);font-size:0.82rem">'+p+'</div>';});}if(cp.recommendations&&cp.recommendations.length){html+='<div class="divider"></div><p style="font-size:0.78rem;font-weight:600;color:var(--muted);margin-bottom:0.4rem">RECOMMENDATIONS</p>';cp.recommendations.forEach(function(r){html+='<div style="background:#f0fdf4;border-left:3px solid #22c55e;padding:0.4rem 0.7rem;border-radius:0 6px 6px 0;font-size:0.78rem;color:#166534;margin-bottom:0.3rem">'+r+'</div>';});}html+='</div>';}if(d.errors&&d.errors.length){html+='<div style="background:#fff8e1;border:1px solid #ffe082;border-radius:10px;padding:0.7rem 1rem;font-size:0.78rem;color:#7a5c00">'+d.errors.join(' | ')+'</div>';}$('pred-result').innerHTML=html||'<div class="empty-state">No prediction data returned.</div>';});}
 
-function delSess(id){if(!confirm('Delete this conversation?'))return;fetch('/api/chat/session/'+id,{method:'DELETE'}).then(function(){if(id===G.currentSessId){G.chatReady=false;initChat();}else{loadSessions();}toast('Conversation deleted.');});}
+function runAutoJournal(){setBtn('btn-auto-j',true);fetch('/api/auto-journal/run',{method:'POST'}).then(function(r){return r.json();}).then(function(d){setBtn('btn-auto-j',false,'Generate Auto-Journal (14 days)');var r=d.result;var color=r.enabled?'#f0fdf4':'#fff8e1';var border=r.enabled?'#22c55e':'#fbbf24';var textColor=r.enabled?'#166534':'#7a5c00';$('auto-journal-result').innerHTML='<div style="background:'+color+';border:1px solid '+border+';border-radius:10px;padding:0.8rem 1rem;font-size:0.83rem;color:'+textColor+'">'+r.message+(r.entries_needed?' ('+r.entries_needed+' more entries needed)':'')+'</div>';if(r.enabled)loadCalendar();});}
 
-function initChat(){if(G.chatReady)return;G.chatReady=true;fetch('/api/chat/history').then(function(r){return r.json();}).then(function(d){if(!d.success)return;G.currentSessId=d.sessionId;$('chat-msgs').innerHTML='';if(!d.messages.length){addMsg("Hi! I'm Luna 🌙 I'm your personal cycle guide. I already have your profile and journal data — the more you log, the more accurate I become.\n\nI'll check in on your previous entries and ask about injuries, environmental conditions, and flow changes to help me give better predictions.\n\nWhat's on your mind today?","bot");}else{d.messages.forEach(function(m){addMsg(m.content,m.role==='assistant'?'bot':'user',false);});}loadSessions();showSuggs();});}
+// PROFILE
+function obNext(s){[1,2,3].forEach(function(n){var el=$('ob-'+n);if(el)el.style.display='none';});$('ob-'+s).style.display='block';$('ob-prog').style.width={1:'33%',2:'66%',3:'100%'}[s];}
+function loadProfile(){fetch('/api/profile').then(function(r){return r.json();}).then(function(d){if(!d.profile)return;var p=d.profile;if(p.name)$('ob-name').value=p.name;if(p.age)$('ob-age').value=p.age;if(p.sport)$('ob-sport').value=p.sport;if(p.event_date)$('ob-event').value=p.event_date;if(p.desired_phase)$('ob-desired-phase').value=p.desired_phase;if(p.cycles_data)$('ob-cycles').value=p.cycles_data;if(p.avg_cycle_length)$('ob-cycle-len').value=p.avg_cycle_length;if(p.last_period_start)$('ob-last-period').value=p.last_period_start;if(p.cycle_status)document.querySelectorAll('#ob-cs .pill').forEach(function(pl){if(pl.textContent.trim()===p.cycle_status)pl.classList.add('sel');});if(p.training_load)document.querySelectorAll('#ob-load .pill').forEach(function(pl){if(pl.textContent.trim()===p.training_load)pl.classList.add('sel');});if(p.acl_history)document.querySelectorAll('#ob-acl .pill').forEach(function(pl){if(pl.textContent.trim()===p.acl_history)pl.classList.add('sel');});if(p.auto_journal_enabled){document.querySelectorAll('#ob-auto-j .pill').forEach(function(pl){if(pl.textContent.trim().startsWith('Enabled')&&p.auto_journal_enabled)pl.classList.add('sel');if(pl.textContent.trim().startsWith('Disabled')&&!p.auto_journal_enabled)pl.classList.add('sel');});}try{var goals=JSON.parse(p.goals||'[]');document.querySelectorAll('#ob-goals .pill').forEach(function(pl){if(goals.indexOf(pl.textContent.trim())!==-1)pl.classList.add('sel');});}catch(e){}});}
 
-function sendChat(){var inp=$('chat-in');var msg=inp.value.trim();if(!msg)return;inp.value='';$('suggs').innerHTML='';addMsg(msg,'user');inp.disabled=true;$('send-btn').disabled=true;showTyping();fetch('/api/chat/send',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({message:msg,sessionId:G.currentSessId})}).then(function(r){return r.json();}).then(function(d){rmTyping();inp.disabled=false;$('send-btn').disabled=false;inp.focus();if(d.success){addMsg(d.reply,'bot');G.currentSessId=d.sessionId;showSuggs();loadSessions();}else{addMsg('I had trouble responding. Please try again.','bot');}}).catch(function(){rmTyping();inp.disabled=false;$('send-btn').disabled=false;addMsg('Connection error. Please try again.','bot');});}
-
-// PREDICTIONS
-function runPrediction(){setBtn('btn-predict',true);$('pred-result').innerHTML='<div class="empty-state">Generating prediction from your data...</div>';fetch('/api/predict',{method:'POST'}).then(function(r){return r.json();}).then(function(d){setBtn('btn-predict',false,'Generate Prediction');if(!d.success){$('pred-result').innerHTML='<div class="card"><p style="color:var(--muted);font-size:0.85rem">'+( d.error||'Could not generate prediction. Make sure your last period start date is saved in your Profile.')+'</p></div>';return;}renderPrediction(d.prediction,d.source);}).catch(function(){setBtn('btn-predict',false,'Generate Prediction');$('pred-result').innerHTML='<div class="card"><p class="empty-state">Error generating prediction.</p></div>';});}
-
-function renderPrediction(p,source){var html='<div class="pred-card"><div class="pred-title">Prediction Report <span style="font-size:0.7rem;color:var(--muted)">('+(source==='claude'?'Claude AI':'Built-in engine')+')</span></div>';if(p.summary)html+='<p style="font-size:0.85rem;color:var(--dark);margin-bottom:1rem;line-height:1.6">'+p.summary+'</p>';var confClass={'high':'conf-high','medium':'conf-medium','low':'conf-low'}[p.next_period_confidence]||'conf-medium';html+='<div class="pred-row"><span class="pred-label">Next Period Predicted</span><span class="pred-value">'+( p.next_period_predicted||'Unknown')+'</span></div>';html+='<div class="pred-row"><span class="pred-label">Confidence</span><span class="conf-badge '+confClass+'">'+( p.next_period_confidence||'medium')+'</span></div>';html+='<div class="pred-row"><span class="pred-label">Estimated Ovulation</span><span class="pred-value">'+(p.ovulation_estimated||'—')+'</span></div>';html+='<div class="pred-row"><span class="pred-label">Current Phase</span><span class="pred-value">'+(p.current_phase||'—')+' (day '+(p.current_phase_day||'?')+')</span></div>';if(p.event_phase_prediction){html+='<div class="pred-row"><span class="pred-label">Your Event Phase</span><span class="pred-value">'+p.event_phase_prediction+' (day '+( p.event_cycle_day_prediction||'?')+')</span></div>';if(p.event_recommendations)html+='<div style="background:var(--pt);border-radius:10px;padding:0.8rem 1rem;margin-top:0.5rem;font-size:0.82rem;color:var(--dark);line-height:1.5">🎯 '+p.event_recommendations+'</div>';}html+='</div>';if(p.period_shift_factors&&p.period_shift_factors.length){html+='<div class="card"><h3>🔄 Shift Factors</h3>';p.period_shift_factors.forEach(function(f){html+='<div class="alert-item">'+f+'</div>';});html+='</div>';}if(p.pattern_alerts&&p.pattern_alerts.length){html+='<div class="card"><h3>⚠️ Pattern Alerts</h3>';p.pattern_alerts.forEach(function(a){html+='<div class="alert-item">'+a+'</div>';});html+='</div>';}if(p.injury_flags&&p.injury_flags.length){html+='<div class="card"><h3>🚨 Injury Flags</h3>';p.injury_flags.forEach(function(f){html+='<div class="flag-item">'+f+'</div>';});html+='</div>';}if(p.environmental_impact&&p.environmental_impact!=='No significant environmental factors logged.'){html+='<div class="card"><h3>🌡️ Environmental Impact</h3><p style="font-size:0.83rem;color:var(--dark);line-height:1.6">'+p.environmental_impact+'</p></div>';}if(p.calendar_suggestions&&p.calendar_suggestions.length){html+='<div class="card"><h3>📅 Suggestions Added to Calendar</h3><p style="font-size:0.8rem;color:var(--muted);margin-bottom:0.7rem">These events have been added to your calendar automatically.</p>';p.calendar_suggestions.forEach(function(s){html+='<div style="display:flex;align-items:center;gap:0.6rem;padding:0.5rem 0;border-bottom:1px solid var(--bdr);font-size:0.82rem"><span style="color:var(--ai)">🔮</span><span style="font-weight:500">'+s.title+'</span><span style="color:var(--muted);margin-left:auto">'+s.date+'</span></div>';});html+='</div>';}$('pred-result').innerHTML=html;}
+function saveProfile(){setBtn('btn-save-profile',true);var goals=Array.from(document.querySelectorAll('#ob-goals .pill.sel')).map(function(p){return p.textContent.trim();});var autoJSel=document.querySelector('#ob-auto-j .pill.sel');var autoJ=autoJSel&&autoJSel.textContent.trim().startsWith('Enabled');var body={name:$('ob-name').value,age:$('ob-age').value,cycle_status:txt('#ob-cs'),goals:goals,sport:$('ob-sport').value,event_date:$('ob-event').value,desired_phase:$('ob-desired-phase').value,cycles_data:$('ob-cycles').value,training_load:txt('#ob-load'),acl_history:txt('#ob-acl'),avg_cycle_length:$('ob-cycle-len').value||28,last_period_start:$('ob-last-period').value,auto_journal_enabled:autoJ};fetch('/api/profile',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)}).then(function(r){return r.json();}).then(function(d){setBtn('btn-save-profile',false,'Save Profile');if(d.success){toast('Profile saved!');$('ob-3').innerHTML='<div class="success-box"><span style="font-size:3rem;display:block;margin-bottom:0.8rem">🌕</span><h2 style="font-family:Cormorant Garamond,serif;font-size:1.7rem;color:var(--cr)">Profile Saved!</h2><p style="color:var(--muted);font-size:0.88rem;margin-top:0.5rem">Your data powers Luna\'s predictions and cognitive model.</p><br/><button class="btn btn-sm" onclick="showPage(\'journal\',document.querySelector(\'#app-nav button:nth-child(2)\'))">Start Journaling</button></div>';}});}
 
 // TEAMS
-function loadTeams(){fetch('/api/teams').then(function(r){return r.json();}).then(function(d){var container=$('my-teams');if(!d.teams||!d.teams.length){container.innerHTML='<div class="empty-state">You are not on any teams yet. Join one with an invite code above.</div>';return;}container.innerHTML=d.teams.map(function(t){var members=t.members||[];var mHtml=members.map(function(m){return '<span class="member-chip '+m.role+'">'+m.username+' ('+m.role+')</span>';}).join('');var isCoach=G.role==='coach'&&t.coach_id;var inviteHtml=isCoach?('<div class="invite-box">Invite Code: <span class="invite-code">'+t.invite_code+'</span><button class="btn-outline btn-sm" onclick="copyCode(\''+t.invite_code+'\')">Copy</button></div>'):'';return '<div class="team-card"><div class="team-name">'+t.name+'</div><div style="font-size:0.78rem;color:var(--muted)">Coach: '+t.coach_name+'</div><div class="member-list">'+mHtml+'</div>'+inviteHtml+'</div>';}).join('');});}
-
-function createTeam(){var name=$('team-name').value.trim();if(!name)return toast('Team name required.');fetch('/api/teams',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({name:name})}).then(function(r){return r.json();}).then(function(d){if(d.success){toast('Team created! Invite code: '+d.invite_code);$('team-name').value='';loadTeams();}else{toast(d.error||'Error creating team.');}});}
-
-function joinTeam(){var code=$('join-code').value.trim().toUpperCase();if(!code)return toast('Enter an invite code.');fetch('/api/teams/join',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({invite_code:code})}).then(function(r){return r.json();}).then(function(d){if(d.success){toast('Joined '+d.team_name+'!');$('join-code').value='';loadTeams();}else{toast(d.error||'Could not join team.');}});}
-
-function copyCode(code){if(navigator.clipboard){navigator.clipboard.writeText(code).then(function(){toast('Invite code copied!');});}else{toast('Code: '+code);}}
-
-// CLOSE MODAL ON BACKGROUND CLICK
-$('event-modal').addEventListener('click',function(e){if(e.target===this)closeModal();});
+function loadTeams(){fetch('/api/teams').then(function(r){return r.json();}).then(function(d){var c=$('my-teams');if(!d.teams||!d.teams.length){c.innerHTML='<div class="empty-state">Not on any teams yet. Join with an invite code above.</div>';return;}c.innerHTML=d.teams.map(function(t){var members=t.members||[];var mHtml=members.map(function(m){return '<span class="member-chip '+m.role+'">'+m.username+'</span>';}).join('');var invHtml=G.role==='coach'?('<div style="background:var(--pt);border:1.5px dashed var(--bdr);border-radius:10px;padding:0.7rem 1rem;display:flex;align-items:center;justify-content:space-between;gap:0.5rem;margin-top:0.8rem;font-size:0.82rem"><span>Invite Code: <span class="invite-code">'+t.invite_code+'</span></span><button class="btn-outline btn-sm" onclick="navigator.clipboard&&navigator.clipboard.writeText(\''+t.invite_code+'\').then(function(){toast(\'Copied!\');})">Copy</button></div>'):'';return '<div class="team-card"><div style="font-family:Cormorant Garamond,serif;font-size:1.2rem;color:var(--cr);margin-bottom:0.3rem">'+t.name+'</div><div style="font-size:0.78rem;color:var(--muted)">Coach: '+t.coach_name+'</div><div style="display:flex;flex-wrap:wrap;gap:0.3rem;margin-top:0.6rem">'+mHtml+'</div>'+invHtml+'</div>';}).join('');});}
+function createTeam(){var name=$('team-name').value.trim();if(!name)return toast('Team name required.');fetch('/api/teams',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({name:name})}).then(function(r){return r.json();}).then(function(d){if(d.success){toast('Team created! Code: '+d.invite_code);$('team-name').value='';loadTeams();}else toast(d.error||'Error');});}
+function joinTeam(){var code=$('join-code').value.trim().toUpperCase();if(!code)return toast('Enter an invite code.');fetch('/api/teams/join',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({invite_code:code})}).then(function(r){return r.json();}).then(function(d){if(d.success){toast('Joined '+d.team_name+'!');$('join-code').value='';loadTeams();}else toast(d.error||'Error');});}
 </script>
 </body>
 </html>
