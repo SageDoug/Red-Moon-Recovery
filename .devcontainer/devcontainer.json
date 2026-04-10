@@ -1,7 +1,9 @@
 {
   "name": "Red Moon Recovery",
   "image": "mcr.microsoft.com/devcontainers/python:3.11",
-  "forwardPorts": [3000],
+  "forwardPorts": [
+    3000
+  ],
   "portsAttributes": {
     "3000": {
       "label": "Red Moon Recovery",
